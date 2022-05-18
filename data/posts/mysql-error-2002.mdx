@@ -1,0 +1,55 @@
+---
+title: Mysql error 2002
+tags: ['database', 'mysql']
+summary: Mysql error 2002
+date: '2022-06-18'
+---
+
+**[ERROR 2002 (HY000): Can't connect to local MySQL server through socket '/tmp/mysql.sock'](https://stackoverflow.com/questions/15450091/error-2002-hy000-cant-connect-to-local-mysql-server-through-socket-tmp-mys)**
+
+## mysql.sock?
+
+**unix/linux 의 디렉토리 구조상 임시 저장 directory인 /tmp에서 mysqld가 start 상태일 때 생성되었다가 stop상태일 때는 지워지는, mysqld(mysql의 서버 프로그램) 과 mysql(mysql 클라이언트 프로그램)이 같은 컴퓨터에서 통신할 때 파일을 사용하여 통신하는데 이때 사용되는 파일이다. (mysql.sock, 이런 파일을Unix Domain Socket이라고 한다.)**
+
+mysql 서버 프로그램(데몬, mysqld)과 클라이언트 프로그램(mysql, 또는 php의 접속 루틴)은 서로 다른 프로세스이다.
+
+당연히 mysql이라는 완성된 프로그램이 실행될 때 mysqld와 mysql 사이에서 통신이 이뤄져야한다.
+
+**mysql**은 **TCP/IP 소켓**(주로 mysqld와 mysql이 다른 컴퓨터에 있을 때 사용하는 통신 방법, 이때 포트는 보통 3306)과 **Unix Domain Socket**(같은 컴퓨터에 있을 때는 보통 TCP/IP보다 이것을 사용한다) 둘 다 사용할 수 있다.
+
+TCP/IP 소켓이 IP주소와 포트를 이용해서 통신을 하듯 **Unix Domain Socket는 파일**을 이용한다. **이때 mysql.sock은 이런 용도로 사용되는 파일**이다.
+
+따라서 mysqld를 실행시켰을 때는 mysql.sock파일이 있지만, 중지시키면 이 파일은 사라지게 되는 것.
+
+### 원인
+
+1. mysql demon 이 실행되지 않은 경우(Mysql 서버가 실행되지 않고 있다)
+2. my.cnf 파일 자체가 깨졌을 경우
+3. mysql.sock를 시스템이 못찾거나 경로가 정확하지 않을경우
+
+### 해결
+
+1. mysql 실행
+
+   ```bash
+   brew services start mysql
+   ```
+
+2. mysql.sock 위치를 찾고 심볼릭 링크로 연결
+
+   ```bash
+   # 아래 코드를 통해서 mysql.sock 파일의 위치를 찾는다
+   find / -name mysql.sock
+   ```
+
+   ```bash
+   # 심볼릭 링크를 연결한다
+   ln -s /tmp/mysql.sock /var/lib/mysql/mysql.sock
+   ```
+
+3. mysql 재설치
+
+```bash
+rm -rf /opt/Homebrew/var/mysql
+rm /opt/Homebrew/etc/my.cnf
+```
