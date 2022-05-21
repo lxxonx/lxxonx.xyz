@@ -4,9 +4,13 @@ import matter from 'gray-matter';
 import path from 'path';
 import kebabCase from './utils/kebabCase';
 
+const getPath = (_path: string) => {
+  return path.join(process.cwd(), 'data', _path);
+};
+
 export async function getAllTags(): Promise<any> {
-  const posts = fs.readdirSync(path.join(process.cwd(), 'data', 'posts'));
-  const projects = fs.readdirSync(path.join(process.cwd(), 'data', 'projects'));
+  const posts = fs.readdirSync(getPath('posts'));
+  const projects = fs.readdirSync(getPath('projects'));
   const tagCount = {} as any;
   // Iterate through each post, putting all found tags into `tags`
   posts.forEach((file: any) => {
@@ -53,8 +57,8 @@ function formatSlug(slug: string) {
 }
 
 export async function getAllFrontMatters(): Promise<any[]> {
-  const posts = fs.readdirSync(path.join(process.cwd(), 'data', 'posts'));
-  const projects = fs.readdirSync(path.join(process.cwd(), 'data', 'projects'));
+  const posts = fs.readdirSync(getPath('posts'));
+  const projects = fs.readdirSync(getPath('projects'));
 
   const allFrontMatter: any[] = [];
 

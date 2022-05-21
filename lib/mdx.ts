@@ -52,7 +52,9 @@ export async function getMdxFromSlug(
 }
 
 export async function getAllMdx(kind: Kind): Promise<any> {
-  const mdxs = fs.readdirSync(path.join(process.cwd(), `data/${kind}`));
+  const resolvedPath = path.join(process.cwd(), 'data', kind);
+
+  const mdxs = fs.readdirSync(resolvedPath);
 
   return mdxs.reduce((allProjects: any, projectSlug) => {
     // get parsed data from mdx files in the "articles" dir
