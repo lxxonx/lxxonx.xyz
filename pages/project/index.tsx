@@ -4,7 +4,7 @@ import dayjs from 'dayjs';
 import Head from 'next/head';
 import Link from 'next/link';
 import { PostType } from 'types/post';
-import { getAllMdx } from 'utils/mdx';
+import { getAllMdx } from 'lib/mdx';
 
 type Props = {
   projects: PostType[];

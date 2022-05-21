@@ -2,8 +2,8 @@ import Layout from '@/components/Layout';
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import { useState } from 'react';
-import kebabCase from 'utils/kebabCase';
-import { getAllFrontMatters, getAllTags } from 'utils/tags';
+import kebabCase from 'lib/utils/kebabCase';
+import { getAllFrontMatters, getAllTags } from 'lib/tags';
 
 export async function getStaticPaths(): Promise<{
   paths: { params: { tag: string } }[];

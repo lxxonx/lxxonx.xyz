@@ -2,16 +2,16 @@ import dayjs from 'dayjs';
 import fs from 'fs';
 import matter from 'gray-matter';
 import path from 'path';
-import kebabCase from './kebabCase';
+import kebabCase from './utils/kebabCase';
 
 export async function getAllTags(): Promise<any> {
-  const posts = fs.readdirSync(path.join(process.cwd(), 'data/posts'));
-  const projects = fs.readdirSync(path.join(process.cwd(), 'data/projects'));
+  const posts = fs.readdirSync(path.join(process.cwd(), 'data', 'posts'));
+  const projects = fs.readdirSync(path.join(process.cwd(), 'data', 'projects'));
   const tagCount = {} as any;
   // Iterate through each post, putting all found tags into `tags`
   posts.forEach((file: any) => {
     const source = fs.readFileSync(
-      path.join(process.cwd(), 'data/posts', file),
+      path.join(process.cwd(), 'data', 'posts', file),
       'utf8'
     );
     const { data } = matter(source);
@@ -29,7 +29,7 @@ export async function getAllTags(): Promise<any> {
 
   projects.forEach((file: any) => {
     const source = fs.readFileSync(
-      path.join(process.cwd(), 'data/projects', file),
+      path.join(process.cwd(), 'data', 'projects', file),
       'utf8'
     );
     const { data } = matter(source);
@@ -53,8 +53,8 @@ function formatSlug(slug: string) {
 }
 
 export async function getAllFrontMatters(): Promise<any[]> {
-  const posts = fs.readdirSync(path.join(process.cwd(), 'data/posts'));
-  const projects = fs.readdirSync(path.join(process.cwd(), 'data/projects'));
+  const posts = fs.readdirSync(path.join(process.cwd(), 'data', 'posts'));
+  const projects = fs.readdirSync(path.join(process.cwd(), 'data', 'projects'));
 
   const allFrontMatter: any[] = [];
 
@@ -65,7 +65,7 @@ export async function getAllFrontMatters(): Promise<any[]> {
       return;
     }
     const source = fs.readFileSync(
-      path.join(process.cwd(), `data/posts`, file),
+      path.join(process.cwd(), `data`, `posts`, file),
       'utf-8'
     );
     const { data: frontmatter } = matter(source);
@@ -84,7 +84,7 @@ export async function getAllFrontMatters(): Promise<any[]> {
     }
 
     const source = fs.readFileSync(
-      path.join(process.cwd(), `data/projects`, file),
+      path.join(process.cwd(), `data`, `projects`, file),
       'utf-8'
     );
 

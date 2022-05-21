@@ -1,8 +1,8 @@
 import Layout from '@/components/Layout';
 import Tag from '@/components/Tag';
 import Link from 'next/link';
-import kebabCase from 'utils/kebabCase';
-import { getAllTags } from 'utils/tags';
+import kebabCase from 'lib/utils/kebabCase';
+import { getAllTags } from 'lib/tags';
 
 export async function getStaticProps(): Promise<{ props: { tags: any } }> {
   const tags = await getAllTags();

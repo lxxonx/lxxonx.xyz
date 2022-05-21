@@ -8,7 +8,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
 import rehypeSlug from 'rehype-slug';
-import { getMdxFromSlug, getMdxSlug } from 'utils/mdx';
+import { getMdxFromSlug, getMdxSlug } from 'lib/mdx';
 import Layout, { WEBSITE_HOST_URL } from '@/components/Layout';
 import { MetaProps } from '@/types/layout';
 import { PostType } from '@/types/post';
