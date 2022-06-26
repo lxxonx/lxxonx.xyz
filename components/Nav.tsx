@@ -15,6 +15,9 @@ const Nav = (): JSX.Element => {
       <Link href="/project">
         <a className="text-gray-900 dark:text-white pr-3 py-4">Project</a>
       </Link>
+      <Link href="/tags">
+        <a className="text-gray-900 dark:text-white pr-3 py-4">Tags</a>
+      </Link>
     </nav>
   );
 };

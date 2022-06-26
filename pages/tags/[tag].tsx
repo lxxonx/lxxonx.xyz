@@ -4,6 +4,7 @@ import Link from 'next/link';
 import { useState } from 'react';
 import kebabCase from 'lib/utils/kebabCase';
 import { getAllFrontMatters, getAllTags } from 'lib/tags';
+import { PostType } from '@/types/post';
 
 export async function getStaticPaths(): Promise<{
   paths: { params: { tag: string } }[];
@@ -83,8 +84,8 @@ export default function Tag({ posts, tag }: Props): JSX.Element {
           </div>
         </div>
         <ul>
-          {filteredBlogPosts?.map((frontMatter: any) => {
-            const { slug, date, title, summary, tags } = frontMatter;
+          {filteredBlogPosts?.map((frontMatter: PostType) => {
+            const { slug, date, title, summary, tags, kind } = frontMatter;
             return (
               <li key={slug} className="py-4">
                 <article className="space-y-2 xl:grid xl:grid-cols-4 xl:items-baseline xl:space-y-0">
@@ -99,16 +100,17 @@ export default function Tag({ posts, tag }: Props): JSX.Element {
                   <div className="space-y-3 xl:col-span-3">
                     <div>
                       <h3 className="text-2xl font-bold leading-8 tracking-tight">
-                        <Link href={`/blog/${slug}`}>{title}</Link>
+                        <Link href={`/${kind}/${slug}`}>{title}</Link>
                       </h3>
                       <div className="flex flex-wrap">
-                        {tags.map((tag: string) => (
-                          <Link href={`/tags/${kebabCase(tag)}`} key={tag}>
-                            <a className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                              {tag.split(' ').join('-')}
-                            </a>
-                          </Link>
-                        ))}
+                        {tags &&
+                          tags.map((tag: string) => (
+                            <Link href={`/tags/${kebabCase(tag)}`} key={tag}>
+                              <a className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                                {tag.split(' ').join('-')}
+                              </a>
+                            </Link>
+                          ))}
                       </div>
                     </div>
                     <div className="prose max-w-none text-gray-500 dark:text-gray-400">
