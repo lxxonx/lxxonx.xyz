@@ -25,9 +25,15 @@ const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
         </div>
       </header>
       <main>
-        <div className="max-w-5xl py-4 mx-auto">{children}</div>
+        <div className="max-w-65ch py-4 mx-auto">{children}</div>
       </main>
       <Footer></Footer>
+
+      <style jsx>{`
+        .max-w-65ch {
+          max-width: 65ch;
+        }
+      `}</style>
     </div>
   );
 };
