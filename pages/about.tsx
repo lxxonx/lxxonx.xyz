@@ -96,7 +96,7 @@ export const About = (): JSX.Element => {
       </div>
 
       <ShadowedBox className="bg-yellow-400 text-gray-700 font-extrabold my-6">
-        Who Can I Do?
+        What Can I Do?
       </ShadowedBox>
 
       <div className="flex space-y-3 md:space-y-0 md:space-x-2 flex-col md:flex-row">
