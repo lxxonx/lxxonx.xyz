@@ -43,7 +43,7 @@ export async function getStaticProps({
 
 type Props = any;
 
-export default function Tag({ posts, tag }: Props): JSX.Element {
+export default function TagDetail({ posts, tag }: Props): JSX.Element {
   const title = tag?.toUpperCase();
   const [searchValue, setSearchValue] = useState('');
   const filteredBlogPosts = posts?.filter((frontMatter: any) => {

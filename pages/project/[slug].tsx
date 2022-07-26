@@ -13,7 +13,7 @@ import Layout, { WEBSITE_HOST_URL } from '@/components/Layout';
 import { MetaProps } from '@/types/layout';
 import { PostType } from '@/types/post';
 import siteMetadata from '@/data/siteMetadata';
-import kebabCase from 'lib/utils/kebabCase';
+import Tag from '@/components/Tag';
 
 const components = {
   Head,
@@ -46,13 +46,7 @@ const ProjectPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
         </h3>
         <div className="mb-3">
           {frontMatter.tags &&
-            frontMatter.tags.map((tag: string) => (
-              <Link href={`/tags/${kebabCase(tag)}`} key={tag}>
-                <a className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
-                  {tag.split(' ').join('-')}
-                </a>
-              </Link>
-            ))}
+            frontMatter.tags.map((tag: string) => <Tag text={tag} key={tag} />)}
         </div>
         <p className="mb-10 text-sm text-gray-500 dark:text-gray-400">
           {dayjs(frontMatter.date).format('YYYY년 MM월 DD일')}
