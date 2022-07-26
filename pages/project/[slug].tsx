@@ -13,6 +13,7 @@ import Layout, { WEBSITE_HOST_URL } from '@/components/Layout';
 import { MetaProps } from '@/types/layout';
 import { PostType } from '@/types/post';
 import siteMetadata from '@/data/siteMetadata';
+import kebabCase from 'lib/utils/kebabCase';
 
 const components = {
   Head,
@@ -37,15 +38,29 @@ const ProjectPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
   return (
     <Layout customMeta={customMeta}>
       <article>
-        <h1 className="mb-3 text-gray-900 dark:text-white">
+        <h1 className="mb-0 text-gray-900 dark:text-white">
           {frontMatter.title}
         </h1>
+        <h3 className="mb-0 text-gray-500 dark:text-gray-400">
+          {frontMatter.summary}
+        </h3>
+        <div className="mb-3">
+          {frontMatter.tags &&
+            frontMatter.tags.map((tag: string) => (
+              <Link href={`/tags/${kebabCase(tag)}`} key={tag}>
+                <a className="mr-3 text-sm font-medium uppercase text-primary-500 hover:text-primary-600 dark:hover:text-primary-400">
+                  {tag.split(' ').join('-')}
+                </a>
+              </Link>
+            ))}
+        </div>
         <p className="mb-10 text-sm text-gray-500 dark:text-gray-400">
           {dayjs(frontMatter.date).format('YYYY년 MM월 DD일')}
         </p>
         {frontMatter.cover && (
           <Image src={frontMatter.cover} alt="cover" width={500} height={500} />
         )}
+
         <div className="prose dark:prose-dark">
           <MDXRemote {...source} components={components} />
         </div>
