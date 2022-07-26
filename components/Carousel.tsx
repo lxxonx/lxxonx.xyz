@@ -32,19 +32,66 @@ const Carousel = ({
         className={`overflow-hidden w-52 h-52 relative border-2 border-solid border-gray-900 dark:border-gray-50 ${className}`}
       >
         <button
-          className="absolute left-1 top-1/2 -translate-y-1/2 z-10 stroke-current"
+          className="absolute left-1 top-1/2 -translate-y-1/2 z-10 fill-current text-gray-700 hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-50 w-5"
           onClick={prev}
         >
-          <svg
-            width="14"
-            height="22"
-            viewBox="0 0 14 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M6.17947 17.8729C2.45859 14.785 0.599771 12.4956 0.603023 11.0048C0.604107 10.5079 0.871774 9.86235 1.40602 9.06825C1.9402 8.30728 2.63656 7.49692 3.49509 6.63717C4.33047 5.77737 5.23528 4.93428 6.2095 4.10787C7.18366 3.31459 8.12283 2.6372 9.02702 2.0757C9.90805 1.51415 10.6729 1.13459 11.3216 0.937028C11.9471 0.772551 12.3405 0.872672 12.5018 1.23739C12.9392 2.36459 11.5227 4.28343 8.25224 6.99391C4.98184 9.67125 4.97595 12.3713 8.23457 15.0939C9.87546 16.4553 11.0421 17.6335 11.7345 18.6287C12.4269 19.657 12.6684 20.3863 12.4591 20.8166C12.2498 21.2468 11.6246 21.2457 10.5837 20.8131C9.51953 20.4135 8.05146 19.4335 6.17947 17.8729Z"
-              strokeOpacity="0.96"
+          <svg viewBox="0 0 80 144" xmlns="http://www.w3.org/2000/svg">
+            <rect x="80" width="16" height="16" transform="rotate(90 80 0)" />
+            <rect
+              x="64"
+              y="16"
+              width="16"
+              height="16"
+              transform="rotate(90 64 16)"
+            />
+            <rect
+              x="48"
+              y="32"
+              width="16"
+              height="16"
+              transform="rotate(90 48 32)"
+            />
+            <rect
+              x="32"
+              y="48"
+              width="16"
+              height="16"
+              transform="rotate(90 32 48)"
+            />
+            <rect
+              x="16"
+              y="64"
+              width="16"
+              height="16"
+              transform="rotate(90 16 64)"
+            />
+            <rect
+              x="32"
+              y="80"
+              width="16"
+              height="16"
+              transform="rotate(90 32 80)"
+            />
+            <rect
+              x="48"
+              y="96"
+              width="16"
+              height="16"
+              transform="rotate(90 48 96)"
+            />
+            <rect
+              x="64"
+              y="112"
+              width="16"
+              height="16"
+              transform="rotate(90 64 112)"
+            />
+            <rect
+              x="80"
+              y="128"
+              width="16"
+              height="16"
+              transform="rotate(90 80 128)"
             />
           </svg>
         </button>
@@ -57,20 +104,66 @@ const Carousel = ({
           )}
         </div>
         <button
-          className="absolute right-1 top-1/2 -translate-y-1/2 z-10 stroke-current"
+          className="absolute right-1 top-1/2 -translate-y-1/2 z-10 fill-current text-gray-700 hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-50 w-5"
           onClick={next}
         >
-          <svg
-            width="14"
-            height="22"
-            viewBox="0 0 14 22"
-            fill="none"
-            xmlns="http://www.w3.org/2000/svg"
-          >
-            <path
-              d="M7.54983 4.09791C11.2912 7.18229 13.1619 9.4707 13.1619 10.9631C13.1619 11.4606 12.8947 12.1073 12.3602 12.9033C11.8257 13.6661 11.1286 14.4787 10.2687 15.341C9.43215 16.2033 8.52584 17.049 7.54983 17.8781C6.57381 18.6741 5.63265 19.354 4.72635 19.9178C3.84329 20.4816 3.07642 20.863 2.42574 21.062C1.7983 21.2278 1.40324 21.1283 1.24057 20.7635C0.799043 19.6359 2.21659 17.7123 5.49322 14.9927C8.76985 12.3063 8.76985 9.60336 5.49322 6.8838C3.84329 5.52402 2.66974 4.34665 1.97259 3.35169C1.27543 2.32357 1.03143 1.59393 1.24057 1.16278C1.44972 0.731629 2.07716 0.731629 3.12289 1.16278C4.19186 1.56076 5.66751 2.53914 7.54983 4.09791Z"
-              strokeOpacity="0.96"
+          <svg viewBox="0 0 80 144" xmlns="http://www.w3.org/2000/svg">
+            <rect
+              y="144"
+              width="16"
+              height="16"
+              transform="rotate(-90 0 144)"
             />
+            <rect
+              x="16"
+              y="128"
+              width="16"
+              height="16"
+              transform="rotate(-90 16 128)"
+            />
+            <rect
+              x="32"
+              y="112"
+              width="16"
+              height="16"
+              transform="rotate(-90 32 112)"
+            />
+            <rect
+              x="48"
+              y="96"
+              width="16"
+              height="16"
+              transform="rotate(-90 48 96)"
+            />
+            <rect
+              x="64"
+              y="80"
+              width="16"
+              height="16"
+              transform="rotate(-90 64 80)"
+            />
+            <rect
+              x="48"
+              y="64"
+              width="16"
+              height="16"
+              transform="rotate(-90 48 64)"
+            />
+            <rect
+              x="32"
+              y="48"
+              width="16"
+              height="16"
+              transform="rotate(-90 32 48)"
+            />
+            <rect
+              x="16"
+              y="32"
+              width="16"
+              height="16"
+              transform="rotate(-90 16 32)"
+            />
+            <rect y="16" width="16" height="16" transform="rotate(-90 0 16)" />
           </svg>
         </button>
       </div>
