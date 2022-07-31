@@ -35,64 +35,8 @@ const Carousel = ({
           className="absolute left-1 top-1/2 -translate-y-1/2 z-10 fill-current text-gray-700 hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-50 w-5"
           onClick={prev}
         >
-          <svg viewBox="0 0 80 144" xmlns="http://www.w3.org/2000/svg">
-            <rect x="80" width="16" height="16" transform="rotate(90 80 0)" />
-            <rect
-              x="64"
-              y="16"
-              width="16"
-              height="16"
-              transform="rotate(90 64 16)"
-            />
-            <rect
-              x="48"
-              y="32"
-              width="16"
-              height="16"
-              transform="rotate(90 48 32)"
-            />
-            <rect
-              x="32"
-              y="48"
-              width="16"
-              height="16"
-              transform="rotate(90 32 48)"
-            />
-            <rect
-              x="16"
-              y="64"
-              width="16"
-              height="16"
-              transform="rotate(90 16 64)"
-            />
-            <rect
-              x="32"
-              y="80"
-              width="16"
-              height="16"
-              transform="rotate(90 32 80)"
-            />
-            <rect
-              x="48"
-              y="96"
-              width="16"
-              height="16"
-              transform="rotate(90 48 96)"
-            />
-            <rect
-              x="64"
-              y="112"
-              width="16"
-              height="16"
-              transform="rotate(90 64 112)"
-            />
-            <rect
-              x="80"
-              y="128"
-              width="16"
-              height="16"
-              transform="rotate(90 80 128)"
-            />
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M16 2V3H14V5H12V7H10V9H8V10H7V11H6V13H7V14H8V15H10V17H12V19H13H14V20V21H16V22H18V19H16V17H14V15H12V13H10V11H12V9H14V7H16V5H18V2H16Z" />
           </svg>
         </button>
         <div className="carousel-list">
@@ -107,63 +51,8 @@ const Carousel = ({
           className="absolute right-1 top-1/2 -translate-y-1/2 z-10 fill-current text-gray-700 hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-50 w-5"
           onClick={next}
         >
-          <svg viewBox="0 0 80 144" xmlns="http://www.w3.org/2000/svg">
-            <rect
-              y="144"
-              width="16"
-              height="16"
-              transform="rotate(-90 0 144)"
-            />
-            <rect
-              x="16"
-              y="128"
-              width="16"
-              height="16"
-              transform="rotate(-90 16 128)"
-            />
-            <rect
-              x="32"
-              y="112"
-              width="16"
-              height="16"
-              transform="rotate(-90 32 112)"
-            />
-            <rect
-              x="48"
-              y="96"
-              width="16"
-              height="16"
-              transform="rotate(-90 48 96)"
-            />
-            <rect
-              x="64"
-              y="80"
-              width="16"
-              height="16"
-              transform="rotate(-90 64 80)"
-            />
-            <rect
-              x="48"
-              y="64"
-              width="16"
-              height="16"
-              transform="rotate(-90 48 64)"
-            />
-            <rect
-              x="32"
-              y="48"
-              width="16"
-              height="16"
-              transform="rotate(-90 32 48)"
-            />
-            <rect
-              x="16"
-              y="32"
-              width="16"
-              height="16"
-              transform="rotate(-90 16 32)"
-            />
-            <rect y="16" width="16" height="16" transform="rotate(-90 0 16)" />
+          <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+            <path d="M17 11V10H16V9H14V7H12V5H10V3H8V2H6V5H8V7H10V9H12V11H14V13H12V15H10V17H8V19H6V22H8V21H10V19H12V18V17H14V16V15H16V14H17V13H18V12V11H17Z" />
           </svg>
         </button>
       </div>
