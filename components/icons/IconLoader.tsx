@@ -22,10 +22,8 @@ const IconLoader = ({
   const Svg = components[kind];
 
   return (
-    <div>
-      <Svg
-        className={`fill-current text-yellow-500 dark:text-yellow-200 h-${size} w-${size} ${className}`}
-      />
+    <div className={`h-${size} w-${size} ${className}`}>
+      <Svg className={`fill-current text-yellow-500 dark:text-yellow-200`} />
     </div>
   );
 };
