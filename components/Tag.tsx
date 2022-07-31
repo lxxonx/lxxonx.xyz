@@ -8,7 +8,7 @@ type Props = {
 const Tag = ({ text }: Props): JSX.Element => {
   return (
     <Link href={`/tags/${kebabCase(text)}`}>
-      <a className="  text-sm font-medium uppercase text-green-500 dark:text-green-300 dark:hover:text-green-400 rounded-md bg-gray-700 px-2 py-1">
+      <a className="  text-sm font-medium uppercase text-green-400 hover:text-green-500 dark:text-green-300 dark:hover:text-green-400 rounded-md bg-gray-100 dark:bg-gray-700 px-2 py-1">
         {text.split(' ').join('-')}
       </a>
     </Link>
