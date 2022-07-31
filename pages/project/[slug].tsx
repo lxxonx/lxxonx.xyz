@@ -44,7 +44,7 @@ const ProjectPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
         <h3 className="mb-0 text-gray-500 dark:text-gray-400">
           {frontMatter.summary}
         </h3>
-        <div className="mb-3">
+        <div className="mb-3 flex flex-wrap justify-even space-x-2">
           {frontMatter.tags &&
             frontMatter.tags.map((tag: string) => <Tag text={tag} key={tag} />)}
         </div>
