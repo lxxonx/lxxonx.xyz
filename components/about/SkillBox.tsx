@@ -22,7 +22,7 @@ const SkillItem = ({ link, name, rate }: SkillItemProps) => {
 
 const RateInfo = () => {
   return (
-    <div className="absolute top-7 right-0 dark:bg-gray-800 px-4 py-2 rounded-md">
+    <div className="absolute top-7 right-0 bg-gray-100 dark:bg-gray-800  px-4 py-2 rounded-md">
       <table className="">
         <thead>
           <tr className="head-border dark:border-gray-50">
