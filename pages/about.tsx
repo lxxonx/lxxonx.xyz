@@ -1,5 +1,5 @@
 import React from 'react';
-import Layout from '@/components/Layout';
+import Layout from '@/layouts/default';
 import OutlinedBox from '@/components/OutlinedBox';
 import siteMetadata from '@/data/siteMetadata';
 import Carousel from '@/components/Carousel';

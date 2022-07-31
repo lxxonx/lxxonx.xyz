@@ -2,9 +2,9 @@ import NextHead from 'next/head';
 import { useRouter } from 'next/router';
 import React from 'react';
 import { MetaProps } from '../types/layout';
+import siteMetadata from '@/data/siteMetadata';
 
-export const WEBSITE_HOST_URL = 'https://lxxonx.xyz';
-
+const WEBSITE_HOST_URL = siteMetadata.WEBSITE_HOST_URL;
 const Head = ({ customMeta }: { customMeta?: MetaProps }): JSX.Element => {
   const router = useRouter();
   const meta: MetaProps = {

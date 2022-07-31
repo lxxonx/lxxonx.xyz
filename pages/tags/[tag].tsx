@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout';
+import Layout from '@/layouts/default';
 import dayjs from 'dayjs';
 import Link from 'next/link';
 import { useState } from 'react';

@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout';
+import Layout from '@/layouts/default';
 import Tag from '@/components/Tag';
 import Link from 'next/link';
 import kebabCase from 'lib/utils/kebabCase';

@@ -1,4 +1,4 @@
-import Layout from '@/components/Layout';
+import Layout from '@/layouts/default';
 import Lottie from '@/components/Lottie';
 import siteMetadata from '@/data/siteMetadata';
 

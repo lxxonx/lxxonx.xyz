@@ -1,16 +1,14 @@
 import React from 'react';
 import { MetaProps } from '../types/layout';
-import Footer from './Footer';
-import Head from './Head';
-import Nav from './Nav';
-import ThemeSwitch from './ThemeSwitch';
+import Footer from '@/components/Footer';
+import Head from '@/components/Head';
+import Nav from '@/components/Nav';
+import ThemeSwitch from '@/components/ThemeSwitch';
 
 type LayoutProps = {
   children: React.ReactNode;
   customMeta?: MetaProps;
 };
-
-export const WEBSITE_HOST_URL = 'https://nextjs-typescript-mdx-blog.vercel.app';
 
 const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
   return (
