@@ -1,0 +1,15 @@
+.container {
+  @apply py-2 flex flex-col sm:flex-row md:flex-col;
+}
+.title {
+  @apply flex-1;
+}
+.detail {
+  flex: 2;
+}
+.rate {
+  @apply flex justify-center my-1;
+}
+.etc {
+  @apply flex justify-center text-xs text-gray-500 text-center;
+}

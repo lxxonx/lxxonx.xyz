@@ -5,6 +5,8 @@ import siteMetadata from '@/data/siteMetadata';
 import Image from 'next/image';
 import Carousel from '@/components/Carousel';
 import ShadowedBox from '@/components/ShadowedBox';
+import AboutSkillBox from '@/components/about/SkillBox';
+import AboutLanguageBox from '@/components/about/LanguageBox';
 
 export const About = (): JSX.Element => {
   return (
@@ -100,34 +102,8 @@ export const About = (): JSX.Element => {
       </ShadowedBox>
 
       <div className="flex space-y-3 md:space-y-0 md:space-x-2 flex-col md:flex-row">
-        <OutlinedBox className="flex-1">
-          <h3 className="capitalize">language</h3>
-          <hr className="my-4" />
-          <div>한국어 native</div>
-          <div>영어 Advanced</div>
-          <div>JS Can Create A Full Stack App</div>
-
-          <div>
-            JavaScript/TypeScript, HTML5, CSS3, Scss, Dart, Go, C#, Python
-            (Interested In: Rust, Elixir)
-          </div>
-        </OutlinedBox>
-        <OutlinedBox className="flex-1">
-          <h3 className="capitalize">skill</h3>
-          <hr className="my-4" />
-
-          <div>
-            - Frontend React.js, Vue.js, Nest.js, Styled Components, Tailwind
-            css, Apollo, Flutter (Interested In: Svelte, Electron, Storybook) -
-            Backend Nest.js, Express.js, Socket.io, Nginx, Prisma, TypeORM,
-            Mysql, Postgresql, Redis, RabbitMQ, Firebase (Interested In: NATS,
-            AWS DynamoDB, MongoDB, Planet Scale, Strapi, KeystoneJS) - DevOps
-            Docker, Docker Compose, Github, Github Actions, AWS ECS, AWS EC2
-            (Interested In: Kubernetes, Terraform)
-          </div>
-          <div>구글링 Advanced</div>
-          <div>커뮤니케이션 Advanced</div>
-        </OutlinedBox>
+        <AboutLanguageBox />
+        <AboutSkillBox />
       </div>
     </Layout>
   );

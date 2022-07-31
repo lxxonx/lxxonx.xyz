@@ -1,0 +1,86 @@
+[
+  {
+    "name": "Googling",
+    "link": "https://www.google.com",
+    "rate": 4,
+    "type": ["general"]
+  },
+  {
+    "name": "Nest.js",
+    "link": "https://nestjs.com",
+    "rate": 3,
+    "type": ["backend"]
+  },
+  {
+    "name": "Express.js",
+    "link": "https://expressjs.com",
+    "rate": 4,
+    "type": ["backend"]
+  },
+  {
+    "name": "Prisma",
+    "link": "https://www.prisma.io",
+    "rate": 4,
+    "type": ["database", "backend"]
+  },
+  {
+    "name": "Redis",
+    "link": "https://redis.io/",
+    "rate": 2,
+    "type": ["database", "msa"]
+  },
+  {
+    "name": "RabbitMQ",
+    "link": "https://www.rabbitmq.com/",
+    "rate": 2,
+    "type": ["msa"]
+  },
+  {
+    "name": "Tailwind CSS",
+    "link": "https://tailwindcss.com/",
+    "rate": 4,
+    "type": ["frontend", "style"]
+  },
+  {
+    "name": "React.js",
+    "link": "https://reactjs.org/",
+    "rate": 4,
+    "type": ["frontend"]
+  },
+  {
+    "name": "Vue.js",
+    "link": "https://vuejs.org/",
+    "rate": 4,
+    "type": ["frontend"]
+  },
+  {
+    "name": "Next.js",
+    "link": "https://nextjs.org/",
+    "rate": 4,
+    "type": ["frontend", "backend"]
+  },
+  {
+    "name": "Docker",
+    "link": "https://nextjs.org/",
+    "rate": 4,
+    "type": ["msa", "devops"]
+  },
+  {
+    "name": "Git",
+    "link": "https://git-scm.com/",
+    "rate": 3,
+    "type": ["general", "devops"]
+  },
+  {
+    "name": "Github Actions",
+    "link": "https://github.com/features/actions",
+    "rate": 3,
+    "type": ["devops"]
+  },
+  {
+    "name": "AWS ECS",
+    "link": "https://aws.amazon.com/ecs/",
+    "rate": 3,
+    "type": ["devops"]
+  }
+]
