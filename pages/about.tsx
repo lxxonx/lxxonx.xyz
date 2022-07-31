@@ -2,13 +2,18 @@ import React from 'react';
 import Layout from '@/components/Layout';
 import OutlinedBox from '@/components/OutlinedBox';
 import siteMetadata from '@/data/siteMetadata';
-import Image from 'next/image';
 import Carousel from '@/components/Carousel';
 import ShadowedBox from '@/components/ShadowedBox';
 import AboutSkillBox from '@/components/about/SkillBox';
 import AboutLanguageBox from '@/components/about/LanguageBox';
 
 export const About = (): JSX.Element => {
+  const profilePics = [
+    '/img/profile.jpg',
+    '/img/profile2.jpeg',
+    '/img/profile3.jpeg',
+    '/img/profile4.jpeg',
+  ].sort(() => Math.random() - 0.5);
   return (
     <Layout
       customMeta={{
@@ -25,54 +30,41 @@ export const About = (): JSX.Element => {
         <OutlinedBox className="flex-1">
           <Carousel
             className="mb-6 mx-auto"
-            carouselItems={[
-              <Image
-                key={1}
-                className="carousel-item"
-                src="/img/profile.jpg"
-                alt="profile"
-                width={208}
-                height={208}
-              ></Image>,
-              <Image
-                key={2}
-                className="carousel-item"
-                src="/img/profile2.jpeg"
-                alt="profile"
-                width={208}
-                height={208}
-              ></Image>,
-              <Image
-                key={3}
-                className="carousel-item"
-                src="/img/profile3.jpeg"
-                alt="profile"
-                width={208}
-                height={208}
-              ></Image>,
-              <Image
-                key={4}
-                className="carousel-item"
-                src="/img/profile4.jpeg"
-                alt="profile"
-                width={208}
-                height={208}
-              ></Image>,
-            ]}
+            carouselItems={profilePics}
           ></Carousel>
           <div>
-            <div className="flex">
-              <div className="mr-2">이름: </div>
-              <strong className="text-xl">이원창</strong>
+            <div className="flex items-center">
+              <div className="mr-2 text-sm dark:text-gray-400 text-gray-500">
+                이름:
+              </div>
+              <strong className="">이원창</strong>
             </div>
-            <div>생년월일 1992년 5월 3일</div>
-            <div>위치 대한민국 대전</div>
-          </div>
-
-          <div>
-            <h3>Websites</h3>
-            <hr />
-            <div>github: https://www.github.com/lxxonx</div>
+            <div className="flex items-center">
+              <div className="mr-2 text-sm dark:text-gray-400 text-gray-500">
+                생년월일:
+              </div>
+              <strong className="">1992년 5월 3일</strong>
+            </div>
+            <div className="flex items-center">
+              <div className="mr-2 text-sm dark:text-gray-400 text-gray-500">
+                위치:
+              </div>
+              <strong className="">대한민국 대전</strong>
+            </div>
+            <div className="flex items-center">
+              <div className="mr-2 text-sm dark:text-gray-400 text-gray-500">
+                깃헙:
+              </div>
+              <strong className="">
+                <a
+                  href="https://www.github.com/lxxonx"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                >
+                  github.com/lxxonx
+                </a>
+              </strong>
+            </div>
           </div>
         </OutlinedBox>
         <OutlinedBox className="flex-2">

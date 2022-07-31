@@ -1,15 +1,12 @@
-import { cloneElement, useState } from 'react';
+import Image from 'next/image';
+import { useState } from 'react';
 
 interface Props {
   className?: string;
-  carouselItems: JSX.Element[];
+  carouselItems: string[];
 }
 
-const Carousel = ({
-  carouselItems,
-  className,
-  ...rest
-}: Props): JSX.Element => {
+const Carousel = ({ carouselItems, className }: Props): JSX.Element => {
   const [active, setActive] = useState(0);
 
   const next = () => {
@@ -40,12 +37,16 @@ const Carousel = ({
           </svg>
         </button>
         <div className="carousel-list">
-          {carouselItems.map((item: JSX.Element) =>
-            cloneElement(item, {
-              ...rest,
-              className: `absolute`,
-            })
-          )}
+          {carouselItems.map((item: string, i: number) => (
+            <Image
+              key={i}
+              className="absolute"
+              src={item}
+              alt="profile"
+              width={208}
+              height={208}
+            ></Image>
+          ))}
         </div>
         <button
           className="absolute right-1 top-1/2 -translate-y-1/2 z-10 fill-current text-gray-700 hover:text-gray-500 dark:text-gray-200 dark:hover:text-gray-50 w-5"

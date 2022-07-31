@@ -103,26 +103,15 @@ function AboutSkillBox(): JSX.Element {
       </div>
       <hr className="my-4" />
       <div>
-        <div>
-          {skills.map((skill) => (
-            <SkillItem
-              link={skill.link}
-              name={skill.name}
-              rate={skill.rate}
-              key={skill.name}
-            />
-          ))}
-          Nest.js, Express.js, Socket.io, Nginx, Prisma, TypeORM, Mysql,
-          Postgresql, Redis, RabbitMQ, Firebase (Interested In: NATS, AWS
-          DynamoDB, MongoDB, Planet Scale, Strapi, KeystoneJS)
-        </div>
-        - Frontend React.js, Vue.js, Nest.js, Styled Components, Tailwind css,
-        Apollo, Flutter (Interested In: Svelte, Electron, Storybook) - Backend -
-        DevOps Docker, Docker Compose, Github, Github Actions, AWS ECS, AWS EC2
-        (Interested In: Kubernetes, Terraform)
+        {skills.map((skill) => (
+          <SkillItem
+            link={skill.link}
+            name={skill.name}
+            rate={skill.rate}
+            key={skill.name}
+          />
+        ))}
       </div>
-      <div>구글링 Advanced</div>
-      <div>커뮤니케이션 Advanced</div>
     </OutlinedBox>
   );
 }
