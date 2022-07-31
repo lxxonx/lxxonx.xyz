@@ -29,41 +29,24 @@
     "rate": 2,
     "type": ["database", "msa"]
   },
-  {
-    "name": "RabbitMQ",
-    "link": "https://www.rabbitmq.com/",
-    "rate": 2,
-    "type": ["msa"]
-  },
-  {
-    "name": "Tailwind CSS",
-    "link": "https://tailwindcss.com/",
-    "rate": 4,
-    "type": ["frontend", "style"]
-  },
-  {
-    "name": "React.js",
-    "link": "https://reactjs.org/",
-    "rate": 4,
-    "type": ["frontend"]
-  },
-  {
-    "name": "Vue.js",
-    "link": "https://vuejs.org/",
-    "rate": 4,
-    "type": ["frontend"]
-  },
-  {
-    "name": "Next.js",
-    "link": "https://nextjs.org/",
-    "rate": 4,
-    "type": ["frontend", "backend"]
-  },
+
   {
     "name": "Docker",
     "link": "https://nextjs.org/",
     "rate": 4,
     "type": ["msa", "devops"]
+  },
+  {
+    "name": "Kubernetes",
+    "link": "https://kubernetes.io/",
+    "rate": 1,
+    "type": ["msa", "devops"]
+  },
+  {
+    "name": "Terraform",
+    "link": "https://www.terraform.io/",
+    "rate": 1,
+    "type": ["devops"]
   },
   {
     "name": "Git",
@@ -82,5 +65,59 @@
     "link": "https://aws.amazon.com/ecs/",
     "rate": 3,
     "type": ["devops"]
+  },
+  {
+    "name": "Next.js",
+    "link": "https://nextjs.org/",
+    "rate": 4,
+    "type": ["frontend", "backend"]
+  },
+  {
+    "name": "RabbitMQ",
+    "link": "https://www.rabbitmq.com/",
+    "rate": 2,
+    "type": ["msa"]
+  },
+  {
+    "name": "Tailwind CSS",
+    "link": "https://tailwindcss.com/",
+    "rate": 4,
+    "type": ["frontend", "style"]
+  },
+  {
+    "name": "Storybook",
+    "link": "https://storybook.js.org/",
+    "rate": 1,
+    "type": ["frontend", "style"]
+  },
+  {
+    "name": "React.js",
+    "link": "https://reactjs.org/",
+    "rate": 4,
+    "type": ["frontend"]
+  },
+  {
+    "name": "Vue.js",
+    "link": "https://vuejs.org/",
+    "rate": 4,
+    "type": ["frontend"]
+  },
+  {
+    "name": "Flutter",
+    "link": "https://flutter.dev/",
+    "rate": 3,
+    "type": ["frontend", "app"]
+  },
+  {
+    "name": "Svelte",
+    "link": "https://svelte.dev/",
+    "rate": 2,
+    "type": ["frontend"]
+  },
+  {
+    "name": "Electron",
+    "link": "https://www.electronjs.org/",
+    "rate": 1,
+    "type": ["frontend", "app"]
   }
 ]
