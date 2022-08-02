@@ -1,4 +1,5 @@
 import ListLayout from '@/layouts/ListLayout';
+import dayjs from 'dayjs';
 import { getAllMdx } from 'lib/mdx';
 import { PostType } from 'types/post';
 
@@ -11,20 +12,15 @@ export default function ProjectPage({ projects }: Props): JSX.Element {
 }
 
 export async function getStaticProps(): Promise<{ props: { projects: any } }> {
-  const projects = await getAllMdx('projects');
+  let projects = await getAllMdx('projects');
 
-  projects
-    .map((project: any) => project.data)
-    .sort((a: any, b: any) => {
-      if (a.data.publishedAt > b.data.publishedAt) return 1;
-      if (a.data.publishedAt < b.data.publishedAt) return -1;
-
-      return 0;
-    });
+  projects = projects.sort((a: PostType, b: PostType) => {
+    return dayjs(a.date).isAfter(b.date) ? -1 : 1;
+  });
 
   return {
     props: {
-      projects: projects.reverse(),
+      projects: projects,
     },
   };
 }
