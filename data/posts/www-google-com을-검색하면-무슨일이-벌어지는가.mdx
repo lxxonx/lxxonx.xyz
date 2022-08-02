@@ -1,0 +1,92 @@
+---
+title: www.google.com을 검색하면 무슨일이 벌어지는가?
+tags: ['network', 'tcp', 'ip', 'dns', 'http']
+summary: network와 통신 protocols
+date: '2022-08-02'
+kind: blog
+---
+
+## 그래서 무슨 일이 벌어지는데?
+
+1. DNS 캐시 탐색
+   브라우저에서 가까운 순서로 탐색 시작
+   - 브라우저 캐시:
+     제일 먼저 브라우저 캐시를 검색합니다
+   - OS 캐시:
+     브라우저에서 못 찾으면 OS에서 찾습니다
+   - 공유기 캐시:
+     여기서부터는 내 컴퓨터 내부가 아님 주의
+   - ISP 캐시:
+     Internet Service Provider. 즉, KT, SK Broadband, LG U+ 등 인터넷 서비스 제공사업자
+2. DNS Query
+   위 과정을 거쳤으나 캐시에서 찾지 못했다면 ISP는 DNS Query를 실행합니다.
+   DNS Query는 여러개의 DNS server를 돌아다니며(`recursivly`) 해당 도메인에 맞는 IP를 찾습니다.
+   DNS query는 아래에 보이는 계층을 따라서 탐색을 하며 각 계층은 고유의 name server를 갖고 있습니다.
+
+   <Image
+     src="/blog/google/1.png"
+     width={1005}
+     height={466}
+     alt="dns query search"
+   />
+   <br />
+   <a href="https://webhostinggeeks.com/guides/dns/" target="_blank">
+     사진 출처
+   </a>
+
+   > `www.google.com`의 예)
+   > `.(root domain)` → `google.com의 dns records` → `www.google.com의 ip`
+
+   이제 원하는 걸 얻었다면 ISP는 얻은 정보를 브라우저에 전달합니다.
+
+3. TCP Connection
+   Server와 Client 간에 HTTP 통신을 하기에 앞서서 TCP Connection을 합니다.
+
+   <Image
+     src="/blog/google/TCP-connection-1.png"
+     width={492}
+     height={221}
+     alt="tcp handshake"
+   />
+   <br />
+   <a
+     href="https://www.geeksforgeeks.org/tcp-3-way-handshake-process/"
+     target="_blank"
+   >
+     사진 출처
+   </a>
+
+   - SYN(Synchronize Sequence Number)
+     클라이언트는 서버에게 접속을 요청하고 어떤 Sequence Number부터 패킷 전송을 시작할 지 알려줍니다
+   - SYN + ACK(Acknowledgement)
+     서버는 SYN segment에 대한 응답으로 ACK segment를 통해 요청이 제대로 전달되었음을 알리고, 마찬가지로 어떤 Sequence Number부터 패킷 전송을 시작할 지 알려줍니다.
+   - ACK
+     클라이언트에서 서버가 보낸 SYN에 대한 응답으로 ACK segment를 담은 패킷을 보내줍니다.
+
+4. HTTP Request
+   TCP connection이 생성되면 데이터 전송이 가능해집니다.
+   Browser는 `www.google.com`(라고 보이지만 실제로는 dns에서 받아온 ip주소)에 GET request를 보내 웹페이지 정보를 받아옵니다.
+
+   <Image
+     src="/blog/google/sample-request-header.png"
+     width={975}
+     height={246}
+     alt="http request"
+   />
+
+5. HTTP Response
+   Server는 받은 요청을 처리하여 Response를 보내줍니다.
+   Reponse에는 해당 webpage를 포함한 많은 정보들이 함께 전달됩니다.
+   예를 들면, status code, compression type(Content-Encoding), Cache-Control, 쿠키 정보 등이 포함됩니다.
+
+6. Render Page
+   Browser는 받은 웹페이지를 파싱하여 트리구조를 만들고 트리끝조를 통해서 필요한 정보를 찾아옵니다.
+   파싱하는 과정에서 필요한 추가적인 데이터(JS, CSS, images 등)은 추가 요청을 통해서 받아옵니다.
+   렌더링 과정이 끝나면 유저가 원하는 화면이 보여집니다.
+
+## references
+
+[[네트워크]google.com을 입력하면 일어나는 일](https://bohyeon-n.github.io/deploy/network/internet-2.html)
+[What happens when you type a URL in the browser and press enter?](https://medium.com/@maneesha.wijesinghe1/what-happens-when-you-type-an-url-in-the-browser-and-press-enter-bb0aa2449c1a)
+[Domain Name System](https://webhostinggeeks.com/guides/dns/)
+[TCP 3-Way Handshake Process](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/)
