@@ -19,7 +19,7 @@
 
 /* Post styles */
 .prose {
-  @apply mx-auto;
+  @apply mx-auto whitespace-pre;
 }
 .prose details {
   @apply cursor-pointer;
