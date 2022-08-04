@@ -11,13 +11,8 @@
     "format": "prettier --write .",
     "lint": "eslint . --ext ts --ext tsx --ext js",
     "test": "jest",
-    "test-all": "yarn lint && yarn type-check && yarn test"
-  },
-  "husky": {
-    "hooks": {
-      "pre-commit": "lint-staged",
-      "pre-push": "yarn run type-check"
-    }
+    "test-all": "yarn lint && yarn type-check && yarn test",
+    "prepare": "husky install"
   },
   "lint-staged": {
     "*.@(ts|tsx)": [
@@ -64,11 +59,10 @@
     "eslint-config-next": "^12.2.3",
     "eslint-config-prettier": "^8.5.0",
     "eslint-plugin-react": "^7.30.1",
-    "husky": "^8.0.1",
+    "husky": "^8.0.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^28.1.3",
     "jest-watch-typeahead": "^2.0.0",
-    "lint-staged": "^13.0.3",
     "postcss": "^8.4.14",
     "prettier": "^2.7.1",
     "rehype": "^12.0.1",
