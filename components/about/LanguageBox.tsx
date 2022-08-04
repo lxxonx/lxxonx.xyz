@@ -6,7 +6,7 @@ import lang from '@/styles/language.module.css';
 function AboutLanguageBox(): JSX.Element {
   return (
     <OutlinedBox className="flex-1">
-      <h3 className="capitalize">language</h3>
+      <h3 className="capitalize font-pixel-lg font-bold text-xl">language</h3>
       <hr className="my-4" />
       <div className={lang.container}>
         <div className={lang.title}>한국어</div>

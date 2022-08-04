@@ -50,7 +50,7 @@ const SocialIcon = ({ kind, href, size = 8 }: Props): JSX.Element | null => {
       <SocialSvg
         width={size * 4}
         height={size * 4}
-        className={`fill-current text-gray-700 hover:text-blue-500 dark:text-gray-200 dark:hover:text-blue-400 h-${size} w-${size}`}
+        className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
       />
     </a>
   );

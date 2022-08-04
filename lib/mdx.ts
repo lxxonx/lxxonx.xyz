@@ -4,6 +4,7 @@ import matter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
 
+type Kind = 'projects' | 'posts' | 'snippets';
 export async function getMdxSlug(_kind: Kind): Promise<string[]> {
   const mdxPath = path.join(process.cwd(), `data/${_kind}`);
   const paths = sync(`${mdxPath}/*.mdx`);
@@ -17,7 +18,6 @@ export async function getMdxSlug(_kind: Kind): Promise<string[]> {
     return slug;
   });
 }
-type Kind = 'projects' | 'posts';
 
 export interface MdxPost {
   content: string;
@@ -71,6 +71,29 @@ export async function getAllMdx(kind: Kind): Promise<any> {
         readingTime: readingTime(source).text,
       },
       ...allProjects,
+    ];
+  }, []);
+}
+
+export async function getSnippets(): Promise<any> {
+  const resolvedPath = path.join(process.cwd(), 'data', 'snippets');
+
+  const mdxs = fs.readdirSync(resolvedPath);
+
+  return mdxs.reduce((allSnippets: any, fileName) => {
+    // get parsed data from mdx files in the "articles" dir
+    const source = fs.readFileSync(
+      path.join(process.cwd(), `data/snippets`, fileName),
+      'utf-8'
+    );
+    const { data, content }: any = matter(source);
+
+    return [
+      {
+        ...data,
+        content,
+      },
+      ...allSnippets,
     ];
   }, []);
 }

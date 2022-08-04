@@ -1,7 +1,7 @@
 import DetailLayout from '@/layouts/DetailLayout';
-import { PostType } from '@/types/post';
-import { getMdxFromSlug, getMdxSlug } from 'lib/mdx';
+import { PostType } from '@/types/mdx';
 import mdxPrism from 'mdx-prism';
+import { getMdxFromSlug, getMdxSlug } from 'lib/mdx';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';

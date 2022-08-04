@@ -1,5 +1,5 @@
 import DetailLayout from '@/layouts/DetailLayout';
-import { PostType } from '@/types/post';
+import { PostType } from '@/types/mdx';
 import { getMdxFromSlug, getMdxSlug } from 'lib/mdx';
 import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';

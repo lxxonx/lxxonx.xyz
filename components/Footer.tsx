@@ -14,7 +14,9 @@ function Footer(): JSX.Element {
             size={8}
           />
         </div>
-        © {dayjs().year()} Lxxonx.xyz
+        <div className="font-pixel-lg font-bold">
+          © {dayjs().year()} Lxxonx.xyz
+        </div>
       </div>
     </footer>
   );

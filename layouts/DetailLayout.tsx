@@ -1,7 +1,7 @@
 import Tag from '@/components/Tag';
 import siteMetadata from '@/data/siteMetadata';
 import { MetaProps } from '@/types/layout';
-import { PostType } from '@/types/post';
+import { PostType } from '@/types/mdx';
 import dayjs from 'dayjs';
 import { MDXRemote, MDXRemoteSerializeResult } from 'next-mdx-remote';
 import Head from 'next/head';
@@ -32,16 +32,16 @@ function DetailLayout({ source, frontMatter }: DetailLayoutProps): JSX.Element {
   return (
     <Layout customMeta={customMeta}>
       <article>
+        <div className="mb-3 flex flex-wrap justify-even space-x-2">
+          {frontMatter.tags &&
+            frontMatter.tags.map((tag: string) => <Tag text={tag} key={tag} />)}
+        </div>
         <h1 className="mb-0 text-gray-900 dark:text-white">
           {frontMatter.title}
         </h1>
         <h3 className="mb-0 text-gray-500 dark:text-gray-400">
           {frontMatter.summary}
         </h3>
-        <div className="mb-3 flex flex-wrap justify-even space-x-2">
-          {frontMatter.tags &&
-            frontMatter.tags.map((tag: string) => <Tag text={tag} key={tag} />)}
-        </div>
         <p className="mb-10 text-sm text-gray-500 dark:text-gray-400">
           {dayjs(frontMatter.date).format('YYYY년 MM월 DD일')}
         </p>
