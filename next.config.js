@@ -1,7 +1,3 @@
-const withBundleAnalyzer = require('@next/bundle-analyzer')({
-  enabled: process.env.ANALYZE === 'true',
-});
-
 const securityHeaders = [
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
   {
@@ -34,7 +30,7 @@ const securityHeaders = [
     value: 'camera=(), microphone=(), geolocation=()',
   },
 ];
-module.exports = withBundleAnalyzer({
+module.exports = {
   reactStrictMode: true,
   pageExtensions: ['mdx', 'md', 'jsx', 'js', 'tsx', 'ts'],
   eslint: {
@@ -48,7 +44,7 @@ module.exports = withBundleAnalyzer({
       },
     ];
   },
-  webpack: (config, { dev, isServer }) => {
+  webpack: (config) => {
     config.resolve.alias = {
       ...config.resolve.alias,
       'react/jsx-runtime.js': require.resolve('react/jsx-runtime'),
@@ -69,16 +65,6 @@ module.exports = withBundleAnalyzer({
       use: ['@svgr/webpack'],
     });
 
-    if (!dev && !isServer) {
-      // Replace React with Preact only in client production build
-      Object.assign(config.resolve.alias, {
-        'react/jsx-runtime.js': 'preact/compat/jsx-runtime',
-        react: 'preact/compat',
-        'react-dom/test-utils': 'preact/test-utils',
-        'react-dom': 'preact/compat',
-      });
-    }
-
     return config;
   },
-});
+};
