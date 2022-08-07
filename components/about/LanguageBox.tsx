@@ -13,7 +13,7 @@ function AboutLanguageBox(): JSX.Element {
         <div className={lang.detail}>
           <RateBox rate={5} />
           <div className={lang.etc}>
-            (원어민, 일상 대화 및 비즈니스 의사소통 가능)
+            (원어민, 일상 대화 및 비즈니스 의사소통 가능합니다)
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@ function AboutLanguageBox(): JSX.Element {
         <div className={lang.detail}>
           <RateBox rate={4} />
           <div className={lang.etc}>
-            (일상 대화, Documentation 읽는 데 문제 없음)
+            (일상 대화, Documentation 읽는 데 문제 없습니다)
           </div>
         </div>
       </div>
@@ -48,8 +48,7 @@ function AboutLanguageBox(): JSX.Element {
         <div className={lang.detail}>
           <RateBox rate={4} />
           <div className={lang.etc}>
-            (js/ts의 기본 동작방식과 문법에 대해 이해하고 있으며, ts의 일반적인
-            용어들을 익혀가고 있는 중)
+            (js/ts의 기본 동작방식과 문법에 대해 이해하고 있습니다)
           </div>
         </div>
       </div>
@@ -58,7 +57,7 @@ function AboutLanguageBox(): JSX.Element {
         <div className={lang.detail}>
           <RateBox rate={4} />
           <div className={lang.etc}>
-            (div의 노예, semantic tag에 익숙해지는 중)
+            (semantic tag를 사용하여 웹사이트를 작성하고 있습니다)
           </div>
         </div>
       </div>
@@ -66,7 +65,10 @@ function AboutLanguageBox(): JSX.Element {
         <div className={lang.title}>Css/Scss</div>
         <div className={lang.detail}>
           <RateBox rate={3} />
-          <div className={lang.etc}>(하지만, 여전히 애니매이션은 어려움)</div>
+          <div className={lang.etc}>
+            (기본적인 css 사용법에 대해 이해하고 있으나 아직 애니매이션 사용은
+            부족합니다)
+          </div>
         </div>
       </div>
       <div className={lang.container}>
@@ -83,7 +85,7 @@ function AboutLanguageBox(): JSX.Element {
         <div className={lang.detail}>
           <RateBox rate={2} />
           <div className={lang.etc}>
-            (프레임워크를 통해서 간단한 프로그램을 만들 수 있음)
+            (프레임워크를 통해서 간단한 프로그램을 만들 수 있습니다)
           </div>
         </div>
       </div>

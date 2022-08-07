@@ -22,48 +22,43 @@ const SkillItem = ({ link, name, rate }: SkillItemProps) => {
 
 const RateInfo = () => {
   return (
-    <div className="absolute top-7 right-0 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-md">
-      <div className="head-border dark:border-gray-50 ">
-        <div className="py-2">별점 기준</div>
+    <div className="absolute top-7 right-0 bg-gray-100 dark:bg-gray-800 px-4 py-2 rounded-md space-y-2">
+      <div className="head-border dark:border-gray-50">
+        <div className="pt-2">별점 기준</div>
       </div>
-      <div className="grid grid-cols-4">
+      <hr />
+      <div className="grid grid-cols-4 items-center">
         <div>
           <RateBox rate={1} size={4} />
         </div>
-        <div className="col-span-3">열심히 배우는 중 입니다</div>
+        <div className="col-span-3">관심을 갖고 열심히 배우고 있습니다.</div>
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 items-center">
         <div>
           <RateBox rate={2} size={4} />
         </div>
-        <div className="col-span-3">
-          쓸 수는 있습니다. 왜냐고 물어보시면 잘 모르겠습니다
-        </div>
+        <div className="col-span-3">사용해본 경험이 있습니다.</div>
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 items-center">
         <div>
           <RateBox rate={3} size={4} />
         </div>
-        <div className="col-span-3">
-          써본 경험이 꽤 있습니다. 여전히 깊이는 모릅니다
-        </div>
+        <div className="col-span-3">써본 경험이 꽤 많이 있습니다.</div>
       </div>
-      <div className="grid grid-cols-4">
+      <div className="grid grid-cols-4 items-center">
         <div>
           <RateBox rate={4} size={4} />
         </div>
         <div className="col-span-3">
-          혼자서 할 수 있지만 시간이 조금 필요합니다
+          사용해본 경험이 많으며, 발생하는 문제에 대해서 해결할 수 있습니다.
         </div>
       </div>
-      <div className="grid grid-cols-4">
+      {/* <div className="grid grid-cols-4">
         <div>
           <RateBox rate={5} size={4} />
         </div>
-        <div className="col-span-3">
-          구글의 도움만 있다면 혼자서 잘 할 수 있습니다
-        </div>
-      </div>
+        <div className="col-span-3"></div>
+      </div> */}
     </div>
   );
 };
