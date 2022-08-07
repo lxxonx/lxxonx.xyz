@@ -17,7 +17,7 @@ const components = {
 };
 
 interface Props {
-  href: string;
+  href?: string;
   size?: number;
   kind:
     | 'instagram'
@@ -40,19 +40,29 @@ const SocialIcon = ({ kind, href, size = 8 }: Props): JSX.Element | null => {
   const SocialSvg = components[kind];
 
   return (
-    <a
-      className={`text-sm text-gray-500 transition hover:text-gray-600 h-${size} w-${size}`}
-      target="_blank"
-      href={href}
-      rel="noopener noreferrer"
-    >
-      <span className="sr-only">{kind}</span>
-      <SocialSvg
-        width={size * 4}
-        height={size * 4}
-        className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
-      />
-    </a>
+    <>
+      {href ? (
+        <a
+          className={`text-sm text-gray-500 transition hover:text-gray-600 h-${size} w-${size}`}
+          target="_blank"
+          href={href}
+          rel="noopener noreferrer"
+        >
+          <span className="sr-only">{kind}</span>
+          <SocialSvg
+            width={size * 4}
+            height={size * 4}
+            className={`fill-current text-gray-700 hover:text-primary-500 dark:text-gray-200 dark:hover:text-primary-400 h-${size} w-${size}`}
+          />
+        </a>
+      ) : (
+        <SocialSvg
+          width={size * 4}
+          height={size * 4}
+          className={`fill-current h-${size} w-${size}`}
+        />
+      )}
+    </>
   );
 };
 

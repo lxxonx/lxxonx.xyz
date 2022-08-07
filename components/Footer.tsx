@@ -1,6 +1,6 @@
 import dayjs from 'dayjs';
 import React from 'react';
-import SocialIcon from './social-icons';
+import SocialIcon from './icons/SocialIcon';
 
 function Footer(): JSX.Element {
   return (
