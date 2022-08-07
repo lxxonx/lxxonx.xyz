@@ -36,15 +36,18 @@ module.exports = {
                 fontWeight: '700',
                 letterSpacing: theme('letterSpacing.tight'),
                 color: theme('colors.gray.900'),
+                fontSize: theme('fontSize.3xl'),
               },
               h2: {
                 fontWeight: '700',
                 letterSpacing: theme('letterSpacing.tight'),
                 color: theme('colors.gray.900'),
+                fontSize: theme('fontSize.2xl'),
               },
               h3: {
                 fontWeight: '600',
                 color: theme('colors.gray.900'),
+                fontSize: theme('fontSize.xl'),
               },
               'h4,h5,h6': {
                 color: theme('colors.gray.900'),
@@ -110,6 +113,13 @@ module.exports = {
               blockquote: {
                 color: theme('colors.gray.900'),
                 borderLeftColor: theme('colors.gray.200'),
+                marginTop: '0',
+                ol: {
+                  marginTop: '0',
+                },
+                ul: {
+                  marginTop: '0',
+                },
               },
               'blockquote >p::before': {
                 content: 'none',

@@ -3,13 +3,13 @@
 @tailwind utilities;
 @layer base {
   h1 {
-    @apply text-3xl font-bold;
+    @apply text-4xl font-bold;
   }
   h2 {
-    @apply text-2xl;
+    @apply text-3xl;
   }
   h3 {
-    @apply text-xl;
+    @apply text-2xl;
   }
   a {
     @apply text-emerald-400 hover:text-emerald-500 dark:text-emerald-300 dark:hover:text-primary-400;
@@ -20,4 +20,7 @@
 
 body {
   font-family: 'Nanum Gothic', sans-serif;
+}
+::selection {
+  @apply bg-emerald-300 dark:bg-emerald-600;
 }
