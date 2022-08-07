@@ -5,7 +5,7 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import rehypeHighlight from 'rehype-highlight';
-import { motion } from 'framer-motion';
+import { AnimatePresence, motion } from 'framer-motion';
 
 const components = {
   Head,
@@ -39,6 +39,12 @@ function SnippetCard({ snippet }: Props): JSX.Element {
     };
     getSource().then((s) => setSource(s));
   }, []);
+
+  const variants = {
+    hidden: { opacity: 0 },
+    enter: { opacity: 1 },
+    exit: { opacity: 0 },
+  };
   return (
     <>
       <div>
@@ -48,13 +54,20 @@ function SnippetCard({ snippet }: Props): JSX.Element {
         >
           {snippet.title}
         </button>
-        {source && open ? (
-          <motion.div className="prose dark:prose-dark">
-            <MDXRemote {...source} components={components} />
-          </motion.div>
-        ) : (
-          <></>
-        )}
+        <AnimatePresence>
+          {source && open && (
+            <motion.div
+              className="prose dark:prose-dark"
+              variants={variants}
+              initial="hidden"
+              animate="enter"
+              exit="exit"
+              transition={{ type: 'linear' }}
+            >
+              <MDXRemote {...source} components={components} />
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
     </>
   );

@@ -4,6 +4,7 @@ tags: ['network', 'tcp', 'ip', 'dns', 'http', 'browser']
 summary: network와 통신 protocols
 date: '2022-08-02'
 kind: blog
+cover: /blog/common/network.jpeg
 ---
 
 ## 그래서 무슨 일이 벌어지는데?
@@ -23,7 +24,7 @@ kind: blog
    DNS Query는 여러개의 DNS server를 돌아다니며(`recursivly`) 해당 도메인에 맞는 IP를 찾습니다.\
    DNS query는 아래에 보이는 계층을 따라서 탐색을 하며 각 계층은 고유의 name server를 갖고 있습니다.
 
-   ![DNS Query Search](/blog/google/1.png)
+   ![DNS Query Search](/blog/www-google-com을-검색하면-무슨일이-벌어지는가/1.png)
    [사진 출처](https://webhostinggeeks.com/guides/dns/)
 
    > `www.google.com`의 예)\
@@ -34,7 +35,7 @@ kind: blog
 3. TCP Connection\
    Server와 Client 간에 HTTP 통신을 하기에 앞서서 TCP Connection을 합니다.
 
-   ![TCP handshake](/blog/google/TCP-connection-1.png)
+   ![TCP handshake](/blog/www-google-com을-검색하면-무슨일이-벌어지는가/TCP-connection-1.png)
    [사진 출처](https://www.geeksforgeeks.org/tcp-3-way-handshake-process/)
 
    - SYN(Synchronize Sequence Number)\
@@ -48,7 +49,7 @@ kind: blog
    TCP connection이 생성되면 데이터 전송이 가능해집니다.\
    Browser는 `www.google.com`(라고 보이지만 실제로는 dns에서 받아온 ip주소)에 GET request를 보내 웹페이지 정보를 받아옵니다.
 
-   ![http request](/blog/google/sample-request-header.png)
+   ![http request](/blog/www-google-com을-검색하면-무슨일이-벌어지는가/sample-request-header.png)
 
 5. HTTP Response\
    Server는 받은 요청을 처리하여 Response를 보내줍니다.\

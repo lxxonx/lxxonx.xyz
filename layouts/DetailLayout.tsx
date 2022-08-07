@@ -46,7 +46,7 @@ function DetailLayout({ source, frontMatter }: DetailLayoutProps): JSX.Element {
           {dayjs(frontMatter.date).format('YYYY년 MM월 DD일')}
         </p>
         {frontMatter.cover && (
-          <Image src={frontMatter.cover} alt="cover" width={500} height={500} />
+          <img src={frontMatter.cover} alt="cover" height="auto" width="auto" />
         )}
 
         <div className="prose dark:prose-dark">
