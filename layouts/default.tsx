@@ -34,7 +34,7 @@ const Layout = ({ children, customMeta }: LayoutProps): JSX.Element => {
         animate="enter"
         exit="exit"
         transition={{ type: 'linear' }}
-        className="py-4 mx-auto"
+        className="py-4 mx-auto max-w-5xl"
       >
         {children}
       </motion.main>

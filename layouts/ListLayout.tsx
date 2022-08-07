@@ -15,13 +15,11 @@ function ListLayout({ posts, type }: Props): JSX.Element {
       <Head>
         <title>{`${type} | ${siteMetadata.author}`}</title>{' '}
       </Head>
-      <div className="max-w-5xl mx-auto">
-        <h1 className="font-pixel-lg">{type}</h1>
-        <hr />
-        {posts.map((post: PostType) => (
-          <PostItem post={post} key={post.slug} />
-        ))}
-      </div>
+      <h1 className="font-pixel-lg">{type}</h1>
+      <hr />
+      {posts.map((post: PostType) => (
+        <PostItem post={post} key={post.slug} />
+      ))}
     </Layout>
   );
 }
