@@ -9,7 +9,7 @@ function Footer(): JSX.Element {
         <div className="flex py-2 space-x-4 justify-center">
           <SocialIcon href="https://github.com/lxxonx" kind="github" size={8} />
           <SocialIcon
-            href="https://github.com/lxxonx"
+            href="https://instagram.com/lxxonx.xyz"
             kind="instagram"
             size={8}
           />
