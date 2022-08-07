@@ -15,3 +15,9 @@ export interface PostType extends BaseMdx {
 export interface Snippet extends BaseMdx {
   language: 'Javascript';
 }
+
+export type MdxTypes = 'projects' | 'blogs' | 'snippets';
+
+export type Tags = {
+  [key: string]: number;
+};

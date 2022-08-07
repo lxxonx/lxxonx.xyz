@@ -9,7 +9,7 @@ export async function getStaticPaths(): Promise<{
   paths: { params: { tag: string } }[];
   fallback: boolean;
 }> {
-  const tags = await getAllTags();
+  const tags = await getAllTags('projects');
   const paths = Object.keys(tags).map((tag) => ({
     params: {
       tag,
@@ -30,11 +30,9 @@ interface StaticProps {
 export async function getStaticProps({
   params,
 }: StaticProps): Promise<{ props: { posts: any[]; tag: any } }> {
-  const allPosts = await getAllFrontMatters();
-  const filteredPosts = allPosts.filter(
-    (post) =>
-      post.draft !== true &&
-      post.tags.map((t: string) => kebabCase(t)).includes(params.tag)
+  const allPosts = await getAllFrontMatters('projects');
+  const filteredPosts = allPosts.filter((post) =>
+    post.tags?.map((t: string) => kebabCase(t)).includes(params.tag)
   );
 
   return { props: { posts: filteredPosts, tag: params.tag } };
@@ -64,7 +62,7 @@ export default function TagDetail({ posts, tag }: Props): JSX.Element {
               type="text"
               onChange={(e) => setSearchValue(e.target.value)}
               placeholder="Search articles"
-              className="font-pixel block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
+              className="focus:outline-none block w-full rounded-md border border-gray-300 bg-white px-4 py-2 text-gray-900 focus:border-primary-500 focus:ring-primary-500 dark:border-gray-900 dark:bg-gray-800 dark:text-gray-100"
             />
             <svg
               className="absolute right-3 top-3 h-5 w-5 text-gray-400 dark:text-gray-300"

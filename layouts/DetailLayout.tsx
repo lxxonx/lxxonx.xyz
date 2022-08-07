@@ -34,7 +34,9 @@ function DetailLayout({ source, frontMatter }: DetailLayoutProps): JSX.Element {
       <article>
         <div className="mb-3 flex flex-wrap justify-even space-x-2">
           {frontMatter.tags &&
-            frontMatter.tags.map((tag: string) => <Tag text={tag} key={tag} />)}
+            frontMatter.tags.map((tag: string) => (
+              <Tag text={tag} key={tag} type={`${frontMatter.kind}s`} />
+            ))}
         </div>
         <h1 className="mb-0 text-gray-900 dark:text-white">
           {frontMatter.title}

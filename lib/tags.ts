@@ -1,3 +1,4 @@
+import { MdxTypes, PostType, Tags } from '@/types/mdx';
 import dayjs from 'dayjs';
 import fs from 'fs';
 import matter from 'gray-matter';
@@ -8,14 +9,12 @@ const getPath = (_path: string) => {
   return path.join(process.cwd(), 'data', _path);
 };
 
-export async function getAllTags(): Promise<any> {
-  const posts = fs.readdirSync(getPath('posts'));
-  const projects = fs.readdirSync(getPath('projects'));
-  const tagCount = {} as any;
-  // Iterate through each post, putting all found tags into `tags`
-  posts.forEach((file: any) => {
+export async function getAllTags(_type: MdxTypes): Promise<Tags> {
+  const tagCount = {} as Tags;
+  const dir = fs.readdirSync(getPath(_type));
+  dir.forEach((file: any) => {
     const source = fs.readFileSync(
-      path.join(process.cwd(), 'data', 'posts', file),
+      path.join(process.cwd(), 'data', _type, file),
       'utf8'
     );
     const { data } = matter(source);
@@ -30,25 +29,6 @@ export async function getAllTags(): Promise<any> {
       });
     }
   });
-
-  projects.forEach((file: any) => {
-    const source = fs.readFileSync(
-      path.join(process.cwd(), 'data', 'projects', file),
-      'utf8'
-    );
-    const { data } = matter(source);
-    if (data.tags && data.draft !== true) {
-      data.tags.forEach((tag: string) => {
-        const formattedTag = kebabCase(tag);
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1;
-        } else {
-          tagCount[formattedTag] = 1;
-        }
-      });
-    }
-  });
-
   return tagCount;
 }
 
@@ -56,44 +36,21 @@ function formatSlug(slug: string) {
   return slug.replace(/\.(mdx|md)/, '');
 }
 
-export async function getAllFrontMatters(): Promise<any[]> {
-  const posts = fs.readdirSync(getPath('posts'));
-  const projects = fs.readdirSync(getPath('projects'));
-
+export async function getAllFrontMatters(_type: MdxTypes): Promise<PostType[]> {
   const allFrontMatter: any[] = [];
 
-  posts.forEach((file) => {
+  const dir = fs.readdirSync(getPath(_type));
+  dir.forEach((file) => {
     const [fileName, _extension] = file.split('.');
 
     if (_extension !== 'md' && _extension !== 'mdx') {
       return;
     }
     const source = fs.readFileSync(
-      path.join(process.cwd(), `data`, `posts`, file),
+      path.join(process.cwd(), `data`, _type, file),
       'utf-8'
     );
     const { data: frontmatter } = matter(source);
-    allFrontMatter.push({
-      ...frontmatter,
-      slug: formatSlug(fileName),
-      date: frontmatter.date ? dayjs(frontmatter.date).toISOString() : null,
-    });
-  });
-
-  projects.forEach((file) => {
-    const [fileName, _extension] = file.split('.');
-
-    if (_extension !== 'md' && _extension !== 'mdx') {
-      return;
-    }
-
-    const source = fs.readFileSync(
-      path.join(process.cwd(), `data`, `projects`, file),
-      'utf-8'
-    );
-
-    const { data: frontmatter } = matter(source);
-
     allFrontMatter.push({
       ...frontmatter,
       slug: formatSlug(fileName),

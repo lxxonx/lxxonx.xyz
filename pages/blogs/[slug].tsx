@@ -19,7 +19,7 @@ const PostPage = ({ source, frontMatter }: PostPageProps): JSX.Element => {
 
 export const getStaticProps: GetStaticProps = async ({ params }) => {
   const { slug }: any = params;
-  const { content, frontmatter } = await getMdxFromSlug(slug, 'posts');
+  const { content, frontmatter } = await getMdxFromSlug(slug, 'blogs');
 
   const mdxSource = await serialize(content, {
     // Optionally pass remark/rehype plugins
@@ -39,7 +39,7 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
 };
 
 export const getStaticPaths: GetStaticPaths = async () => {
-  const paths = (await getMdxSlug('posts')).map((slug) => ({
+  const paths = (await getMdxSlug('blogs')).map((slug) => ({
     params: { slug },
   }));
 

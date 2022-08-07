@@ -1,11 +1,11 @@
+import { MdxTypes } from '@/types/mdx';
 import fs from 'fs';
 import { sync } from 'glob';
 import matter from 'gray-matter';
 import path from 'path';
 import readingTime from 'reading-time';
 
-type Kind = 'projects' | 'posts' | 'snippets';
-export async function getMdxSlug(_kind: Kind): Promise<string[]> {
+export async function getMdxSlug(_kind: MdxTypes): Promise<string[]> {
   const mdxPath = path.join(process.cwd(), `data/${_kind}`);
   const paths = sync(`${mdxPath}/*.mdx`);
 
@@ -31,7 +31,7 @@ export interface MdxPost {
 }
 export async function getMdxFromSlug(
   slug: string,
-  _kind: Kind
+  _kind: MdxTypes
 ): Promise<MdxPost> {
   const mdxPath = path.join(process.cwd(), `data/${_kind}`);
   const dir = path.join(mdxPath, `${slug}.mdx`);
@@ -51,7 +51,7 @@ export async function getMdxFromSlug(
   };
 }
 
-export async function getAllMdx(kind: Kind): Promise<any> {
+export async function getAllMdx(kind: MdxTypes): Promise<any> {
   const resolvedPath = path.join(process.cwd(), 'data', kind);
 
   const mdxs = fs.readdirSync(resolvedPath);
