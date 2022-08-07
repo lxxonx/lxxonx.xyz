@@ -1,5 +1,6 @@
 import { motion, useCycle } from 'framer-motion';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 import { useEffect } from 'react';
 
 const Path = (props: any) => (
@@ -74,6 +75,8 @@ const variants = {
 };
 
 const NavItem = ({ href, name }: { href: string; name: string }) => {
+  const router = useRouter();
+  const isActive = router.pathname === href;
   const listVar = {
     open: {
       y: 0,
@@ -94,10 +97,16 @@ const NavItem = ({ href, name }: { href: string; name: string }) => {
     <motion.div
       variants={listVar}
       whileTap={{ scale: 0.98 }}
-      whileHover={{ scale: 1.02 }}
+      whileHover={isActive ? {} : { scale: 1.02 }}
     >
       <Link href={href}>
-        <a className="text-gray-900 dark:text-white pr-3 py-4 font-pixel-lg font-bold">
+        <a
+          className={`${
+            isActive
+              ? 'text-primary-500 dark:text-primary-400'
+              : 'text-gray-900 dark:text-white'
+          } pr-3 py-4 font-pixel-lg font-bold`}
+        >
           {name}
         </a>
       </Link>
