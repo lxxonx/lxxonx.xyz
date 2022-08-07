@@ -1,0 +1,29 @@
+---
+title: Firebase Cloud Messaging
+language: Javascript
+kind: snippet
+---
+
+```ts
+import admin, { ServiceAccount } from 'firebase-admin';
+
+function sendFCM(input: SendFCMInput) {
+  const credential = import(`./firebase_credential.json`);
+  const firebase = admin.initializeApp({
+    credential: admin.credential.cert(credential as ServiceAccount),
+  });
+
+  const messaging = firebase.messaging();
+  try {
+    await messaging.send({
+      notification: {
+        title: input.title,
+        body: input.body,
+      },
+      token: input.token,
+    });
+  } catch (e) {
+    console.log(e);
+  }
+}
+```
