@@ -42,7 +42,7 @@ function PersonalBox() {
             href="https://lxxonx.notion.site/5f69e9e9faf64cba8661b7ee7ba71d74"
             target="_blank"
             rel="noopener noreferrer"
-            className="text-sm"
+            className="font-pixel-sm text-xs"
           >
             more detail
           </a>
