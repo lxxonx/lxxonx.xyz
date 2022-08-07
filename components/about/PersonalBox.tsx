@@ -36,8 +36,16 @@ function PersonalBox() {
     <OutlinedBox className="flex-1">
       <Carousel className="mb-6 mx-auto" carouselItems={profilePics}></Carousel>
       <div>
-        <div className="flex items-center">
+        <div className="flex items-center justify-between">
           <h3 className="font-bold">이원창</h3>
+          <a
+            href="https://lxxonx.notion.site/5f69e9e9faf64cba8661b7ee7ba71d74"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-sm"
+          >
+            more detail
+          </a>
         </div>
         <InfoRow kind="calendar" size={6}>
           1992년 5월 3일
