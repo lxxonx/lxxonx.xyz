@@ -145,7 +145,6 @@ const Nav = (): JSX.Element => {
             <NavItem href="/about" name="About" />
             <NavItem href="/blogs" name="Blog" />
             <NavItem href="/projects" name="Projects" />
-            <NavItem href="/tags" name="Tags" />
             <NavItem href="/snippets" name="Snippets" />
           </motion.div>
         </motion.div>
@@ -162,9 +161,6 @@ const Nav = (): JSX.Element => {
         </Link>
         <Link href="/projects">
           <a className="text-gray-900 dark:text-white pr-3 py-4">Projects</a>
-        </Link>
-        <Link href="/tags">
-          <a className="text-gray-900 dark:text-white pr-3 py-4">Tags</a>
         </Link>
         <Link href="/snippets">
           <a className="text-gray-900 dark:text-white pr-3 py-4">Snippets</a>
