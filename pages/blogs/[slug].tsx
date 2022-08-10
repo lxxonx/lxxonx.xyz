@@ -1,11 +1,12 @@
 import DetailLayout from '@/layouts/DetailLayout';
 import { PostType } from '@/types/mdx';
-import mdxPrism from 'mdx-prism';
 import { getMdxFromSlug, getMdxSlug } from 'lib/mdx';
+import mdxPrism from 'mdx-prism';
 import { GetStaticPaths, GetStaticProps } from 'next';
 import { MDXRemoteSerializeResult } from 'next-mdx-remote';
 import { serialize } from 'next-mdx-remote/serialize';
 import rehypeAutolinkHeadings from 'rehype-autolink-headings';
+import rehypeHighlight from 'rehype-highlight';
 import rehypeSlug from 'rehype-slug';
 
 type PostPageProps = {
@@ -25,7 +26,12 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     // Optionally pass remark/rehype plugins
     mdxOptions: {
       remarkPlugins: [require('remark-code-titles')],
-      rehypePlugins: [mdxPrism, rehypeSlug, rehypeAutolinkHeadings],
+      rehypePlugins: [
+        mdxPrism,
+        rehypeSlug,
+        rehypeAutolinkHeadings,
+        rehypeHighlight,
+      ],
     },
     scope: frontmatter,
   });

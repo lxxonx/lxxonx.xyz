@@ -18,6 +18,7 @@ function PostItem({ post }: Props): JSX.Element {
         <Link as={`/${post.kind}s/${post.slug}`} href={`/${post.kind}s/[slug]`}>
           <a>
             <Image
+              priority={true}
               src={post.cover}
               alt={post.title}
               width={300}

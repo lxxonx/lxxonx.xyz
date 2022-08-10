@@ -17,10 +17,6 @@ function SnippetPage({ snippets }: Props): JSX.Element {
           return <SnippetCard key={s.title} snippet={s}></SnippetCard>;
         })}
       </div>
-      <link
-        rel="stylesheet"
-        href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.4.0/styles/github-dark.min.css"
-      ></link>
     </Layout>
   );
 }
