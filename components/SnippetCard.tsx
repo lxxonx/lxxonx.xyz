@@ -31,7 +31,6 @@ function SnippetCard({ snippet }: Props): JSX.Element {
       const source = await serialize(snippet.content, {
         // Optionally pass remark/rehype plugins
         mdxOptions: {
-          remarkPlugins: [],
           rehypePlugins: [rehypeHighlight],
         },
       });

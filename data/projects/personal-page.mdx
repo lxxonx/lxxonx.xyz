@@ -1,0 +1,50 @@
+---
+title: Personal Page
+tags: ['next.js', 'mdx', 'react', 'vercel']
+summary: Personal Page with Next.js
+date: '2022-08-01'
+kind: project
+cover: /demo/personal-page-demo.gif
+---
+
+## 프로젝트에 관해서
+
+[페이지 보러가기](https://lxxonx.xyz)
+[github link](https://github.com/lxxonx/lxxonx.xyz)
+
+### TL;DR
+
+- Next.js, Mdx, TailwindCSS를 활용하여 개인 블로그 및 프로젝트 사이트 제작
+
+### Built With
+
+- [Next.js](https://nodejs.org/ko/)
+- [Vercel](https://vercel.com/) for deployment
+- [Tailwind CSS](https://tailwindcss.com/) for css
+- [Vercel](https://vercel.com/) for fe deployment
+
+## 설명
+
+### 디자인
+
+전체적인 디자인은 pixel 디자인의 아이콘과 Galmury 폰트를 사용하여 레트로 느낌을 주었으나\
+게시물의 내용은 나눔고딕 폰트를 사용하여 가독성을 높혔다.
+
+### MDX
+
+1. libraries
+
+   - `rehypeSlug`: add id to headings
+   - `rehypeAutolinkHeadings`: add link to headings
+   - `rehypeHighlight`: syntax highlighting for code blocks\
+     github-dark theme is used
+   - `rehypeToc`: add table of contents
+   - `tailwindcss typography`: mdx styles
+   - `next-mdx-remote`: get mdx files from remote directories
+   - `reading-time`: get reading time of mdx files
+
+2. load
+
+   - 태그와 관련된 내용은 폴더 안의 모든 게시물을 `gray-matter`를 통해 읽어온 뒤, object로 저장하여 사용한다.
+   - 전반적인 스타일은 tailwindCSS의 typography로 하나, code 블럭의 스타일링은 rehypeHighlight와 hightlight.js의 github dark theme으로 하였다.
+   - 게시물은 blog/project/snippet으로 분류했으며, 각 폴더별로 따로 읽어온다.
