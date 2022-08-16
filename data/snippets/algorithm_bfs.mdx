@@ -1,0 +1,26 @@
+---
+title: BFS
+language: Javascript
+kind: snippet
+---
+
+```js
+const solution = (arr, rootNode) => {
+  const visited = new Array(arr.length).fill(false);
+  const result = [];
+  const queue = [rootNode];
+  visited[rootNode] = true;
+  while (queue.length > 0) {
+    const current = queue.shift();
+    result.push(current);
+    path[current].forEach((vertex) => {
+      if (!visited[vertex]) {
+        visited[vertex] = true;
+        queue.push(vertex);
+      }
+    });
+  }
+
+  return result;
+};
+```
