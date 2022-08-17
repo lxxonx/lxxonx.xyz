@@ -5,6 +5,8 @@ import Calendar from './calendar.svg';
 import Location from './location.svg';
 import Github from './github.svg';
 import Mail from './mail.svg';
+import ArrowUp from './arrowUp.svg';
+import ArrowDown from './arrowDown.svg';
 
 const components = {
   loading: Loading,
@@ -14,6 +16,8 @@ const components = {
   location: Location,
   github: Github,
   mail: Mail,
+  arrowUp: ArrowUp,
+  arrowDown: ArrowDown,
 };
 
 interface Props {
@@ -25,6 +29,8 @@ interface Props {
     | 'calendar'
     | 'location'
     | 'github'
+    | 'arrowUp'
+    | 'arrowDown'
     | 'mail';
   className?: string;
 }
