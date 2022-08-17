@@ -61,7 +61,7 @@ function ListLayout({ posts, tags, type }: Props): JSX.Element {
             return (
               <div key={t} className="mt-2 mb-2 mr-5">
                 <Tag text={t} type={`${type.toLowerCase() as MdxTypes}`} />
-                <Link href={`${type}/tags/${kebabCase(t)}`}>
+                <Link href={`/${type.toLowerCase()}/tags/${kebabCase(t)}`}>
                   <a className="text-primary-400 hover:text-primary-500 dark:text-primary-300 dark:hover:text-primary-400 font-pixel-sm tracking-tight">{` (${tags[t]})`}</a>
                 </Link>
               </div>
