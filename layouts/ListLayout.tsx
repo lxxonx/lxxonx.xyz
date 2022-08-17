@@ -40,6 +40,7 @@ function ListLayout({ posts, tags, type }: Props): JSX.Element {
     window.addEventListener('resize', handleResize);
     return () => {
       window.removeEventListener('resize', handleResize);
+      document.fonts.removeEventListener('loadingdone', handleResize);
     };
   }, []);
 
