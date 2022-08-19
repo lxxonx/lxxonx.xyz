@@ -11,6 +11,7 @@ const getPath = (_path: string) => {
 
 export async function getAllTags(_type: MdxTypes): Promise<Tags> {
   const tagCount = {} as Tags;
+  const tagArr = [] as { key: string; count: number }[];
   const dir = fs.readdirSync(getPath(_type));
   dir.forEach((file: any) => {
     const source = fs.readFileSync(
@@ -21,14 +22,27 @@ export async function getAllTags(_type: MdxTypes): Promise<Tags> {
     if (data.tags && data.draft !== true) {
       data.tags.forEach((tag: string) => {
         const formattedTag = kebabCase(tag);
-        if (formattedTag in tagCount) {
-          tagCount[formattedTag] += 1;
+        const index = tagArr.findIndex((e) => e.key === formattedTag);
+        if (index >= 0) {
+          tagArr[index].count += 1;
         } else {
-          tagCount[formattedTag] = 1;
+          tagArr.push({ key: formattedTag, count: 1 });
         }
       });
     }
   });
+  tagArr.sort((a, b) => {
+    if (a.count !== b.count) {
+      return b.count - a.count;
+    } else {
+      return a.key.localeCompare(b.key);
+    }
+  });
+
+  tagArr.forEach((e) => {
+    tagCount[e.key] = e.count;
+  });
+
   return tagCount;
 }
 
