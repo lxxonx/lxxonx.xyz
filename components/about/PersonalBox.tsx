@@ -38,14 +38,14 @@ function PersonalBox() {
       <div>
         <div className="flex items-center justify-between">
           <h3 className="font-bold">이원창</h3>
-          <a
+          {/* <a
             href="https://lxxonx.notion.site/5f69e9e9faf64cba8661b7ee7ba71d74"
             target="_blank"
             rel="noopener noreferrer"
             className="font-pixel-sm text-xs"
           >
             more detail
-          </a>
+          </a> */}
         </div>
         <InfoRow kind="calendar" size={6}>
           1992년 5월 3일
