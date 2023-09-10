@@ -34,13 +34,16 @@ menu:
     - name: Tags
       pageRef: /tags
       weight: 3
-    - name: Search
+    - name: Snippet
+      pageRef: /snippet
       weight: 4
+    - name: Search
+      weight: 5
       params:
         type: search
     - name: GitHub
       weight: 5
-      url: "https://github.com/lxxonx"
+      url: https://github.com/lxxonx
       params:
         icon: github
 
