@@ -1,0 +1,189 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs of lxxonx.xyz</title><link>/blog/</link><description>Recent content in Blogs on lxxonx.xyz</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 20 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Javascript Prototype</title><link>/blog/javascript-prototype/</link><pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate><guid>/blog/javascript-prototype/</guid><description>자바스크립트의 프토로타입과 상속에 관하여</description><content:encoded><![CDATA[<h2>Prototype-based Object oriented language<span class="absolute -mt-20" id="prototype-based-object-oriented-language"></span>
+    <a href="#prototype-based-object-oriented-language" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>javascript is, different from java/c#(class-based ool), a prototype-based object oriented language</li>
+<li>js uses prototype to implement inheritance</li>
+</ul>
+<h2>Prototype<span class="absolute -mt-20" id="prototype"></span>
+    <a href="#prototype" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li>every object in js has (at least) a prototype which has properties and methods</li>
+</ul>
+<div class="code-block relative mt-6 first:mt-0 group/code"><div id="code-block-0"><div class="highlight"><pre tabindex="0" class="chroma"><code class="language-js" data-lang="js"><span class="line"><span class="cl"><span class="kd">var</span> <span class="nx">date</span> <span class="o">=</span> <span class="k">new</span> <span class="nb">Date</span><span class="p">();</span> <span class="c1">// Date.prototype &amp;&amp; Object.prototype
+</span></span></span></code></pre></div></div><div class="opacity-0 transition group-hover/code:opacity-100 flex gap-1 absolute m-[11px] right-0 top-0">
+    <button class="code-copy-btn group/copybtn transition-all active:opacity-50 bg-primary-700/5 border border-black/5 text-gray-600 hover:text-gray-900 rounded-md p-1.5 dark:bg-primary-300/10 dark:border-white/10 dark:text-gray-400 dark:hover:text-gray-50" title="Copy code" data-clipboard-target="#code-block-0">
+      <svg class="group-[.copied]/copybtn:hidden pointer-events-none h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2"><path stroke-linecap="round" stroke-linejoin="round" d="M8 16H6a2 2 0 01-2-2V6a2 2 0 012-2h8a2 2 0 012 2v2m-6 12h8a2 2 0 002-2v-8a2 2 0 00-2-2h-8a2 2 0 00-2 2v8a2 2 0 002 2z" /></svg>
+      <svg class="hidden group-[.copied]/copybtn:block success-icon pointer-events-none h-4 w-4" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" aria-hidden="true"><path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/></svg>
+    </button>
+  </div>
+</div>
+<ul>
+<li>when a function is declared, it can be a constructor for an object using &ldquo;new&rdquo; keyword in front of it</li>
+<li>also, Prototype Object is created for the function and we can access to the Ojbect using &ldquo;prototype&rdquo; property of the function</li>
+<li>Prototype Object has constructor and __proto__(Prototype Link) property</li>
+<li>__proto__(Prototype Link) points to the ancestor&rsquo;s Prototype Object</li>
+</ul>
+<h2>reference<span class="absolute -mt-20" id="reference"></span>
+    <a href="#reference" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><a href="http://www.tcpschool.com/javascript/js_object_prototype" target="_blank" rel="noopener">프로토타입</a></li>
+<li><a href="https://medium.com/@bluesh55/javascript-prototype-%EC%9D%B4%ED%95%B4%ED%95%98%EA%B8%B0-f8e67c286b67" target="_blank" rel="noopener">[Javascript] 프로토타입 이해하기</a></li>
+</ul>
+]]></content:encoded></item><item><title>forEach와 map의 차이점</title><link>/blog/foreach%EC%99%80-map%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</link><pubDate>Fri, 19 Aug 2022 00:00:00 +0000</pubDate><guid>/blog/foreach%EC%99%80-map%EC%9D%98-%EC%B0%A8%EC%9D%B4%EC%A0%90/</guid><description>Javascript의 배열 iterator인 forEach와 Map메소드의 차이점</description><content:encoded><![CDATA[<h2>TL;DR<span class="absolute -mt-20" id="tldr"></span>
+    <a href="#tldr" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
+<li><code>forEach</code>: return 값 없음</li>
+<li><code>map</code>: 재가공된 함수를 리턴</li>
+</ul>
+<h2>설명<span class="absolute -mt-20" id="설명"></span>
+    <a href="#%ec%84%a4%eb%aa%85" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><p>자바스크립트에는 <code>Array</code>클래스에 내장되어 있는 대표적인 iterator 매소드가 두가지 있다. 첫번째는 <code>forEach</code>메소드이며 두번째는 <code>map</code>메소드이다. 두 메소드의 차이점을 지금부터 알아보자</p>
+<ol>
+<li><code>forEach</code>메소드</li>
+</ol>
+<p>가장 기본적인 Array Iterator 메소드이다. <code>Array</code>의 각 엘리먼트들을 돌아가면서 주어진 함수를 실행한다. 중요한 부분은 forEach에는 반환 값이 존재하지 않는다.</p>
+<ol start="2">
+<li><code>map</code>메소드</li>
+</ol>
+<p>forEach와 마찬가지로 기본적으로 <code>Array</code>의 각 엘리먼트들을 돌아가면서 주어진 함수를 수행한다. 하지만, <code>forEach</code>메소드와는 다르게, <code>map</code>메소드는 주어진 함수들의 반환값들을 배열로 묶어서 반환한다. 즉, 주어진 함수로 재가공된 배열을 반환한다.</p>
+<h3>Reference<span class="absolute -mt-20" id="reference"></span>
+    <a href="#reference" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><a href="https://code.tutsplus.com/tutorials/javascript-map-vs-foreach-when-to-use-each-one--cms-38365" target="_blank" rel="noopener">JavaScript map vs. forEach: When to Use Each One</a></li>
+</ul>
+]]></content:encoded></item><item><title>HTML basic questions</title><link>/blog/html-basic-questions/</link><pubDate>Mon, 15 Aug 2022 00:00:00 +0000</pubDate><guid>/blog/html-basic-questions/</guid><description>HTML5 Interview Questions</description><content:encoded><![CDATA[<h2>HTML Interview Questions<span class="absolute -mt-20" id="html-interview-questions"></span>
+    <a href="#html-interview-questions" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><h3>What are semantic tags in HTML5?<span class="absolute -mt-20" id="what-are-semantic-tags-in-html5"></span>
+    <a href="#what-are-semantic-tags-in-html5" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>header, footer, article, aside, details, figcaption, figure, main, nav, section, mark, summary, tima</li>
+<li>why use semantic tags
+<ul>
+<li>easier to read</li>
+<li>greater accessibility</li>
+</ul>
+</li>
+<li>ref: <a href="https://www.freecodecamp.org/news/semantic-html5-elements/" target="_blank" rel="noopener">Semantic HTML5 Elements Explained</a></li>
+</ul>
+<h3>How HTML5 doctype is different from normal html doctype?<span class="absolute -mt-20" id="how-html5-doctype-is-different-from-normal-html-doctype"></span>
+    <a href="#how-html5-doctype-is-different-from-normal-html-doctype" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>HTML5에서는 오직 <code>&lt;!DOCTYPE html&gt;</code>만 사용가능</li>
+<li>ref: <a href="http://www.tcpschool.com/html-tags/doctype" target="_blank" rel="noopener">HTML &lt;!DOCTYPE&gt; 선언</a></li>
+</ul>
+<h3>How many heading tags are there in HTML5?<span class="absolute -mt-20" id="how-many-heading-tags-are-there-in-html5"></span>
+    <a href="#how-many-heading-tags-are-there-in-html5" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>h1, h2, h3, h4, h5, h6</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_hn.asp" target="_blank" rel="noopener">HTML5 Headings</a></li>
+</ul>
+<h3>Where should script tag be placed in html?<span class="absolute -mt-20" id="where-should-script-tag-be-placed-in-html"></span>
+    <a href="#where-should-script-tag-be-placed-in-html" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>head tag with <code>async</code> or <code>defer</code> attribute</li>
+<li>ref: <a href="https://stackoverflow.com/questions/436411/where-should-i-put-script-tags-in-html-markup" target="_blank" rel="noopener">Where should I put &lt;script&gt; tags in HTML markup?</a></li>
+</ul>
+<h3>What is the difference between figure and image tag?<span class="absolute -mt-20" id="what-is-the-difference-between-figure-and-image-tag"></span>
+    <a href="#what-is-the-difference-between-figure-and-image-tag" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>figure tag is used to group a figure with a caption</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_figure.asp" target="_blank" rel="noopener">HTML Figure Tag</a></li>
+</ul>
+<h3>How section tag is different from div tag<span class="absolute -mt-20" id="how-section-tag-is-different-from-div-tag"></span>
+    <a href="#how-section-tag-is-different-from-div-tag" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>section tag: the content inside is grouped and should appear as a entry in an outline of a page</li>
+<li>div tag: does not convey any meaning, aside from any found in its class, lang and title attributes.</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_section.asp" target="_blank" rel="noopener">HTML Section Tag</a></li>
+</ul>
+<h3>Difference between class and id attribute<span class="absolute -mt-20" id="difference-between-class-and-id-attribute"></span>
+    <a href="#difference-between-class-and-id-attribute" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>class: used to group elements with similar styles</li>
+<li>id: used to identify an element</li>
+<li>ref: <a href="https://www.w3schools.com/tags/att_global_id.asp" target="_blank" rel="noopener">HTML Class and ID Attribute</a></li>
+</ul>
+<h3>What is the difference between canvas and svg?<span class="absolute -mt-20" id="what-is-the-difference-between-canvas-and-svg"></span>
+    <a href="#what-is-the-difference-between-canvas-and-svg" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>canvas: used to draw graphics</li>
+<li>svg: used to draw graphics</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_canvas.asp" target="_blank" rel="noopener">Canvas vs SVG</a></li>
+</ul>
+<h3>What you need to add in a html document to make page responsive?<span class="absolute -mt-20" id="what-you-need-to-add-in-a-html-document-to-make-page-responsive"></span>
+    <a href="#what-you-need-to-add-in-a-html-document-to-make-page-responsive" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>meta tag</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_meta.asp" target="_blank" rel="noopener">HTML Meta Tag</a>
+1### List some of media tags available in HTML5</li>
+<li>audio, video, source, track</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_media.asp" target="_blank" rel="noopener">HTML5 Media Tags</a></li>
+</ul>
+<h3>Explain new Form input types in HTML5<span class="absolute -mt-20" id="explain-new-form-input-types-in-html5"></span>
+    <a href="#explain-new-form-input-types-in-html5" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>date: It allows the user to select a date from a drop-down calendar.</li>
+<li>DateTime: It allows the user to select a date and time along with time zone</li>
+<li>time: It allows the user to enter time.</li>
+<li>DateTime-local: It allows the user to select a local date and time</li>
+<li>week: It allows the user to select a week and year from a drop-down calendar.</li>
+<li>month: It allows the user to select a month and year from a drop-down calendar.</li>
+<li>email: It allows the user to enter an e-mail address.</li>
+<li>tel: It allows the user to enter the phone number with a specific pattern.</li>
+<li>URL: It allows the user to enter a website URL</li>
+<li>search: It&rsquo;s a text field for entering a search string</li>
+<li>range: It allows the user to range the value with the slider.</li>
+<li>number: It allows the user to enter a numeric value with the increase and decrease arrow.</li>
+<li>color: It allows the user to select a color from the color picker</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_input.asp" target="_blank" rel="noopener">HTML5 Form Input Types</a></li>
+</ul>
+<h3>What is image map in HTML5?<span class="absolute -mt-20" id="what-is-image-map-in-html5"></span>
+    <a href="#what-is-image-map-in-html5" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>The HTML <code>&lt;map&gt;</code> tag defines an image map. An image map is an image with clickable areas. The areas are defined with one or more <code>&lt;area&gt;</code> tags.</li>
+<li>ref: <a href="https://www.w3schools.com/html/html_images_imagemap.asp" target="_blank" rel="noopener">HTML Image Map</a></li>
+</ul>
+<h3>Difference between <code>&lt;b&gt;</code> and <code>&lt;strong&gt;</code> tag<span class="absolute -mt-20" id="difference-between-b-and-strong-tag"></span>
+    <a href="#difference-between-b-and-strong-tag" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>&lt;b&gt;</code>:The bold tag or <code>&lt;b&gt;</code> is also one of the formatting elements of HTML. The text written under <code>&lt;b&gt;</code> tag makes the text bold presentationally to draw attention.</li>
+<li><code>&lt;strong&gt;</code>: The strong tag is one of the element of HTML used in formatting HTML texts. It is used to show importance of the text by making it bold or highlighting it semantically.</li>
+<li>The main difference between these two tag is that the strong tag semantically emphasizes on the important word or section of words while the bold tag is just offset text conventionally styled in bold.</li>
+<li>ref: <a href="https://www.geeksforgeeks.org/difference-between-strong-and-bold-tag-in-html/" target="_blank" rel="noopener">Difference between strong and bold tag in HTML</a></li>
+</ul>
+<h3>What are the various formatting tags in HTML5?<span class="absolute -mt-20" id="what-are-the-various-formatting-tags-in-html5"></span>
+    <a href="#what-are-the-various-formatting-tags-in-html5" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li><code>&lt;b&gt;</code> - Bold <b>text</b></li>
+<li><code>&lt;strong&gt;</code> - Important <strong>text</strong></li>
+<li><code>&lt;i&gt;</code> - Italic <i>text</i></li>
+<li><code>&lt;em&gt;</code> - Emphasized <em>text</em></li>
+<li><code>&lt;mark&gt;</code> - Marked <mark>text</mark></li>
+<li><code>&lt;small&gt;</code> - Smaller <small>text</small></li>
+<li><code>&lt;del&gt;</code> - Deleted <del>text</del></li>
+<li><code>&lt;ins&gt;</code> - Inserted <ins>text</ins></li>
+<li><code>&lt;sub&gt;</code> - Subscript <sub>text</sub></li>
+<li><code>&lt;sup&gt;</code> - Superscript <sup>text</sup></li>
+<li>ref: <a href="https://www.w3schools.com/html/html_formatting.asp" target="_blank" rel="noopener">HTML Formatting Tags</a></li>
+</ul>
+<h3>Explain the concept of web storage in HTML5<span class="absolute -mt-20" id="explain-the-concept-of-web-storage-in-html5"></span>
+    <a href="#explain-the-concept-of-web-storage-in-html5" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>
+<p>With web storage, web applications can store data locally within the user&rsquo;s browser.</p>
+<ul>
+<li>Before HTML5, application data had to be stored in cookies, included in every server request. Web storage is more secure, and large amounts of data can be stored locally, without affecting website performance.</li>
+</ul>
+</li>
+<li>
+<p>Unlike cookies, the storage limit is far larger (at least 5MB) and information is never transferred to the server.</p>
+</li>
+<li>
+<p>Web storage is per origin (per domain and protocol). All pages, from one origin, can store and access the same data.</p>
+</li>
+<li>
+<p>ref: <a href="https://www.w3schools.com/html/html5_webstorage.asp" target="_blank" rel="noopener">HTML Web Storage API</a></p>
+</li>
+</ul>
+<h3>Explain Meta tags<span class="absolute -mt-20" id="explain-meta-tags"></span>
+    <a href="#explain-meta-tags" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>The <code>&lt;meta&gt;</code> tag defines metadata about an HTML document. Metadata is data (information) about data.</li>
+<li><code>&lt;meta&gt;</code> tags always go inside the <code>&lt;head&gt;</code> element, and are typically used to specify character set, page description, keywords, author of the document, and viewport settings.</li>
+<li>Metadata will not be displayed on the page, but is machine parsable.</li>
+<li>Metadata is used by browsers (how to display content or reload page), search engines (keywords), and other web services.</li>
+<li>There is a method to let web designers take control over the viewport (the user&rsquo;s visible area of a web page), through the <code>&lt;meta&gt;</code> tag (See &ldquo;Setting The Viewport&rdquo; example below).</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_meta.asp" target="_blank" rel="noopener">HTML Meta Tags</a></li>
+</ul>
+<h3>Explain the <code>&lt;base&gt;</code> tag<span class="absolute -mt-20" id="explain-the-base-tag"></span>
+    <a href="#explain-the-base-tag" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>The <code>&lt;base&gt;</code> tag specifies the base URL to use for all relative URLs in a document.</li>
+<li>ref: <a href="https://www.w3schools.com/tags/tag_base.asp" target="_blank" rel="noopener">HTML Base Tag</a></li>
+</ul>
+<h3>What are the frequently useful API in HTML5?<span class="absolute -mt-20" id="what-are-the-frequently-useful-api-in-html5"></span>
+    <a href="#what-are-the-frequently-useful-api-in-html5" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>ref: <a href="https://www.codingtag.com/api-in-html5" target="_blank" rel="noopener">APIs in HTML5</a></li>
+</ul>
+<h3>What are inline elements and block level elements in HTML5?<span class="absolute -mt-20" id="what-are-inline-elements-and-block-level-elements-in-html5"></span>
+    <a href="#what-are-inline-elements-and-block-level-elements-in-html5" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><ul>
+<li>ref: <a href="https://www.w3schools.com/html/html_blocks.asp" target="_blank" rel="noopener">HTML Block and Inline Elements</a></li>
+</ul>
+]]></content:encoded></item></channel></rss>
