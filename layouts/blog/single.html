@@ -15,9 +15,9 @@
         {{- range $i, $author := . -}}
         {{- if $i }},{{ end -}}
         {{- if $author.link -}}
-        <a href="{{ $author.link }}" target="_blank"
-          class="mx-1 text-current underline [text-underline-position:from-font] decoration-from-font">{{ $author.name
-          }}</a>
+        <a href="{{ $author.link }}" target="_blank" class="mx-1 text-current underline [text-underline-position:from-font] decoration-from-font">
+          {{ $author.name }}
+        </a>
         {{- else -}}
         <span>{{ $author.name }}</span>
         {{- end -}}
@@ -33,7 +33,7 @@
       <div class="content">
         {{- if $.Params.cover }}
         <div class="relative w-full h-64 mb-8">
-          <img class="object-cover w-full h-full" src="{{ $.Params.cover | absURL }}" alt="{{ .Title }}">
+          <img class="object-cover w-full h-full" src="{{ $.Params.cover | absURL }}" alt="{{ .Title }}" />
         </div>
         {{ end -}}
         {{ .Content }}
