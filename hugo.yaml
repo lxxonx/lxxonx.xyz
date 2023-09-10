@@ -5,9 +5,6 @@ authors:
   - name: lxxonx
     link: "https://github.com/lxxonx"
 
-build:
-  writeStats: true
-
 # import hextra as module
 module:
   imports:
