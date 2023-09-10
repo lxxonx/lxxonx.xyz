@@ -1,4 +1,4 @@
-module github.com/imfing/hextra-starter-template
+module github.com/lxxonx/lxxonx.xyz
 
 go 1.21
 
