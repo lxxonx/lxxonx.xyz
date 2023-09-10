@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "prebuild": "hugo mod get",
+    "prebuild": "hugo mod tidy",
     "build": "hugo --gc --minify --templateMetrics --templateMetricsHints --forceSyncStatic",
     "build:css": "postcss --config ./postcss.config.js --env production ./assets/css/tailwind-base.css -o ./assets/css/tailwind-extend.css",
     "start": "hugo server -D"
