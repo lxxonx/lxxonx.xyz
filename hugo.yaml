@@ -42,7 +42,7 @@ menu:
       params:
         type: search
     - name: GitHub
-      weight: 5
+      weight: 6
       url: https://github.com/lxxonx
       params:
         icon: github
