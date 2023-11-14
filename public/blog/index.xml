@@ -1,4 +1,23 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs of lxxonx.xyz</title><link>/blog/</link><description>Recent content in Blogs on lxxonx.xyz</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Tue, 20 Sep 2022 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Javascript Prototype</title><link>/blog/javascript-prototype/</link><pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate><guid>/blog/javascript-prototype/</guid><description>자바스크립트의 프토로타입과 상속에 관하여</description><content:encoded><![CDATA[<h2>Prototype-based Object oriented language<span class="absolute -mt-20" id="prototype-based-object-oriented-language"></span>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Blogs of lxxonx.xyz</title><link>/blog/</link><description>Recent content in Blogs on lxxonx.xyz</description><generator>Hugo -- gohugo.io</generator><language>en</language><lastBuildDate>Mon, 11 Sep 2023 00:00:00 +0000</lastBuildDate><atom:link href="/blog/index.xml" rel="self" type="application/rss+xml"/><item><title>Helm Chart 구성요소</title><link>/blog/helm-chart-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C/</link><pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate><guid>/blog/helm-chart-%EA%B5%AC%EC%84%B1%EC%9A%94%EC%86%8C/</guid><description>Helm Chart 구성요소</description><content:encoded><![CDATA[<h3><strong><code>Chart.yaml</code></strong>:<span class="absolute -mt-20" id="chartyaml"></span>
+    <a href="#chartyaml" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><blockquote>
+<p>Helm Char 설정정보 + 메타데이터
+이름, 버전, 설명, 라이센스 등</p>
+</blockquote>
+<h3><code>templates</code>:<span class="absolute -mt-20" id="templates"></span>
+    <a href="#templates" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><blockquote>
+<p>디렉토리 형태로 존재
+values.yaml 과 결합될 때, 유효한 menifest 파일이 생성됨
+<code>service</code>, <code>configMap</code>, etc</p>
+</blockquote>
+<h3><strong><code>values.yaml</code></strong>:<span class="absolute -mt-20" id="valuesyaml"></span>
+    <a href="#valuesyaml" class="subheading-anchor" aria-label="Permalink for this section"></a></h3><blockquote>
+<p><code>templates</code>의 params + 설정</p>
+</blockquote>
+<h4>reference<span class="absolute -mt-20" id="reference"></span>
+    <a href="#reference" class="subheading-anchor" aria-label="Permalink for this section"></a></h4><ul>
+<li><a href="https://helm.sh/ko/docs/topics/charts/" target="_blank" rel="noopener">helm doc</a></li>
+</ul>
+]]></content:encoded></item><item><title>Javascript Prototype</title><link>/blog/javascript-prototype/</link><pubDate>Tue, 20 Sep 2022 00:00:00 +0000</pubDate><guid>/blog/javascript-prototype/</guid><description>자바스크립트의 프토로타입과 상속에 관하여</description><content:encoded><![CDATA[<h2>Prototype-based Object oriented language<span class="absolute -mt-20" id="prototype-based-object-oriented-language"></span>
     <a href="#prototype-based-object-oriented-language" class="subheading-anchor" aria-label="Permalink for this section"></a></h2><ul>
 <li>javascript is, different from java/c#(class-based ool), a prototype-based object oriented language</li>
 <li>js uses prototype to implement inheritance</li>
